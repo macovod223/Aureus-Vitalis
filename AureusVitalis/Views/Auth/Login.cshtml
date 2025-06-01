@@ -1,0 +1,33 @@
+@model AureusVitalis.Models.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<header class="site-header">
+    <a href="/" class="nav-icon">
+        <img src="~/images/home.png" alt="Home" />
+    </a>
+    <div class="site-title">Aureus&Vitalis</div>
+    <a href="/Auth/Register" class="nav-icon">
+        <img src="~/images/profile.png" alt="Profile" />
+    </a>
+</header>
+
+<div class="auth-container">
+    <div class="auth-header">
+        <h2>Login</h2>
+    </div>
+    <form asp-action="Login" asp-controller="Auth" method="post" class="auth-form">
+        <div class="form-group">
+            <label asp-for="EmailOrUsername">Email/Username</label>
+            <input asp-for="EmailOrUsername" />
+            <span asp-validation-for="EmailOrUsername" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password">Password</label>
+            <input asp-for="Password" type="password" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <button type="submit" class="auth-button">Sign in</button>
+    </form>
+</div>

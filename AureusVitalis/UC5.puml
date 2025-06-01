@@ -1,0 +1,38 @@
+@startuml UC5_CreateWorkoutPlan
+scale 1.0
+skinparam Padding 100           '
+
+actor   User
+note left of User
+ БАЗОВЫЙ СЦЕНАРИЙ
+ 1. Открыть «Тренировки»
+ 2. «Добавить тренировку»
+ 3. Заполнить форму
+ 4. «Сохранить»
+ 5. Валидация + запись
+ 6. Обновлённый план
+end note
+
+boundary WebUI
+control  WorkoutSvc           
+database PostgresDB
+
+== открыть раздел ==
+User  -> WebUI        : Открыть «Тренировки»
+WebUI -> WorkoutSvc   : GET /workouts?today
+WorkoutSvc -> PostgresDB : SELECT … today
+PostgresDB --> WorkoutSvc
+WorkoutSvc --> WebUI
+WebUI --> User        : Текущий план
+
+== добавить новую тренировку ==
+User  -> WebUI        : «Добавить»
+WebUI --> User        : Форма
+
+User  -> WebUI        : POST workout
+WebUI -> WorkoutSvc   : CreateWorkout(dto)
+WorkoutSvc -> PostgresDB : INSERT …
+PostgresDB --> WorkoutSvc
+WorkoutSvc --> WebUI  : OK
+WebUI --> User        : Обновлённый план
+@enduml

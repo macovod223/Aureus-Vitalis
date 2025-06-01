@@ -1,0 +1,36 @@
+@startuml UC4_LogMeal
+scale 1.1
+skinparam Padding 100           '
+
+actor User
+note left of User
+ БАЗОВЫЙ СЦЕНАРИЙ
+ 1. Открыть «Питание»
+ 2. «Добавить приём пищи»
+ 3. Заполнить форму
+ 4. «Сохранить»
+ 5. Валидация + запись
+ 6. Обновлённый дневник
+end note
+
+boundary WebUI
+control  MealDiaryService
+database PostgresDB
+
+User  -> WebUI               : Открыть «Питание»
+WebUI -> MealDiaryService    : GET /diary?date=today
+MealDiaryService -> PostgresDB : SELECT ...today
+PostgresDB --> MealDiaryService
+MealDiaryService --> WebUI
+WebUI --> User               : Текущий дневник
+
+User  -> WebUI               : «Добавить приём»
+WebUI --> User               : Форма
+
+User  -> WebUI               : POST meal
+WebUI -> MealDiaryService    : CreateMeal(dto)
+MealDiaryService -> PostgresDB : INSERT ...
+PostgresDB --> MealDiaryService
+MealDiaryService --> WebUI    : OK
+WebUI --> User               : Обновление списка
+@enduml

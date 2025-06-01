@@ -1,0 +1,40 @@
+git pull origin main@startuml UC3_ViewMealPlan
+
+skinparam Padding 100            '
+
+actor User
+note left of User
+ БАЗОВЫЙ СЦЕНАРИЙ
+ 1. Открыть «Питание»
+ 2. План за сегодня
+ 3. «Дата →»
+ 4. План за +1 день
+ 5. «Подробнее» по блюду
+ 6. Состав блюда
+end note
+
+boundary WebUI
+control  MealPlanService
+database PostgresDB
+
+User  -> WebUI            : Открыть «Питание»
+WebUI -> MealPlanService  : GET /meal-plan?date=today
+MealPlanService -> PostgresDB : SELECT … today
+PostgresDB --> MealPlanService
+MealPlanService --> WebUI : JSON план
+WebUI --> User            : Рацион
+
+User  -> WebUI            : «Дата →»
+WebUI -> MealPlanService  : GET ...date=+1
+MealPlanService -> PostgresDB : SELECT … +1
+PostgresDB --> MealPlanService
+MealPlanService --> WebUI
+WebUI --> User            : Обновлённый рацион
+
+User  -> WebUI            : «Подробнее»
+WebUI -> MealPlanService  : GET /meal/{id}
+MealPlanService -> PostgresDB : SELECT * FROM meals WHERE id
+PostgresDB --> MealPlanService
+MealPlanService --> WebUI
+WebUI --> User            : Состав блюда
+@enduml
