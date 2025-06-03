@@ -17,6 +17,18 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+      "Id": "/Users/timur/RiderProjects/AureusVitalis/AureusVitalis/wwwroot/images/calculator.jpg",
+      "PackagePath": "staticwebassets/images/calculator.jpg"
+    },
+    {
+      "Id": "/Users/timur/RiderProjects/AureusVitalis/AureusVitalis/wwwroot/images/education.png",
+      "PackagePath": "staticwebassets/images/education.png"
+    },
+    {
+      "Id": "/Users/timur/RiderProjects/AureusVitalis/AureusVitalis/wwwroot/images/exercises.jpg",
+      "PackagePath": "staticwebassets/images/exercises.jpg"
+    },
+    {
       "Id": "/Users/timur/RiderProjects/AureusVitalis/AureusVitalis/wwwroot/images/home.png",
       "PackagePath": "staticwebassets/images/home.png"
     },
@@ -27,6 +39,10 @@
     {
       "Id": "/Users/timur/RiderProjects/AureusVitalis/AureusVitalis/wwwroot/js/auth.js",
       "PackagePath": "staticwebassets/js/auth.js"
+    },
+    {
+      "Id": "/Users/timur/RiderProjects/AureusVitalis/AureusVitalis/wwwroot/js/exercises.js",
+      "PackagePath": "staticwebassets/js/exercises.js"
     },
     {
       "Id": "/Users/timur/RiderProjects/AureusVitalis/AureusVitalis/wwwroot/js/site.js",

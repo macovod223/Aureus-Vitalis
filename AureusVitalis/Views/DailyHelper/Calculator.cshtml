@@ -1,0 +1,90 @@
+@model AureusVitalis.Models.CalculatorModel
+@{
+    ViewData["Title"] = "Calorie/Sleep Calculator";
+}
+
+<div class="calculator-container">
+    <div class="calculator-header">
+        <h2>Calorie/Sleep Calculator</h2>
+    </div>
+
+    <form asp-action="Calculator" asp-controller="DailyHelper" method="post" class="calculator-form">
+        <div class="form-group">
+            <label asp-for="DailyCalories">Select daily calorie</label>
+            <select asp-for="DailyCalories" class="form-select">
+                <option value="">Choose calories</option>
+                <option value="1500">1500 kcal</option>
+                <option value="2000">2000 kcal</option>
+                <option value="2500">2500 kcal</option>
+                <option value="3000">3000 kcal</option>
+            </select>
+            <span asp-validation-for="DailyCalories" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Allergens">Select allergens</label>
+            <div class="allergens-container">
+                <div class="allergen-option">
+                    <input type="checkbox" id="nuts" name="Allergens" value="Nuts">
+                    <label for="nuts">Nuts</label>
+                </div>
+                <div class="allergen-option">
+                    <input type="checkbox" id="dairy" name="Allergens" value="Dairy">
+                    <label for="dairy">Dairy</label>
+                </div>
+                <div class="allergen-option">
+                    <input type="checkbox" id="eggs" name="Allergens" value="Eggs">
+                    <label for="eggs">Eggs</label>
+                </div>
+                <div class="allergen-option">
+                    <input type="checkbox" id="gluten" name="Allergens" value="Gluten">
+                    <label for="gluten">Gluten</label>
+                </div>
+            </div>
+            <span asp-validation-for="Allergens" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="SleepType">Select sleep type</label>
+            <div class="sleep-type-container">
+                <div class="sleep-option">
+                    <input type="radio" id="short" name="SleepType" value="Short">
+                    <label for="short">Short rest</label>
+                </div>
+                <div class="sleep-option">
+                    <input type="radio" id="long" name="SleepType" value="Long">
+                    <label for="long">Full sleep</label>
+                </div>
+            </div>
+            <span asp-validation-for="SleepType" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="SleepTime">Select sleep time</label>
+            <input type="time" asp-for="SleepTime" class="form-input">
+            <span asp-validation-for="SleepTime" class="text-danger"></span>
+        </div>
+
+        @if (Model?.DietPlan != null || Model?.SleepSchedule != null)
+        {
+            <div class="results-container">
+                @if (Model.DietPlan != null)
+                {
+                    <div class="result-block">
+                        <h3>Your Diet Plan</h3>
+                        <p>@Model.DietPlan</p>
+                    </div>
+                }
+                @if (Model.SleepSchedule != null)
+                {
+                    <div class="result-block">
+                        <h3>Your Sleep Schedule</h3>
+                        <p>@Model.SleepSchedule</p>
+                    </div>
+                }
+            </div>
+        }
+
+        <button type="submit" class="calculator-button">Calculate</button>
+    </form>
+</div>
