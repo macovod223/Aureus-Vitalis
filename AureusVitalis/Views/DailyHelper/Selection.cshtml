@@ -1,0 +1,26 @@
+@model AureusVitalis.Models.DailyHelperModel
+@{
+    ViewData["Title"] = "Daily Helper";
+}
+
+<div class="daily-helper-container">
+    <div class="daily-helper-header">
+        <h2>Daily Helper</h2>
+    </div>
+    <div class="helper-options">
+        <a href="/DailyHelper/Calculator" class="helper-card">
+            <div class="helper-icon">
+                <img src="~/images/calculator.jpg" alt="Calculator" />
+            </div>
+            <h3>Calorie/Sleep Calculator</h3>
+            <p>Calculate your daily calories and optimal sleep schedule</p>
+        </a>
+        <a href="/DailyHelper/Exercises" class="helper-card">
+            <div class="helper-icon">
+                <img src="~/images/exercises.jpg" alt="Exercises" />
+            </div>
+            <h3>List of daily exercises</h3>
+            <p>Generate personalized exercise recommendations</p>
+        </a>
+    </div>
+</div>

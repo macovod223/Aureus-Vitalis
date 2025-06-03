@@ -1,0 +1,153 @@
+@model AureusVitalis.Models.EducationModel
+@{
+    ViewData["Title"] = "Education";
+}
+
+<header class="site-header">
+    <a href="/" class="nav-icon">
+        <img src="~/images/home.png" alt="Home" />
+    </a>
+    <div class="site-title">Aureus&Vitalis</div>
+    <a href="/DailyHelper/Selection" class="daily-helper-link">
+        <span>Daily helper</span>
+    </a>
+</header>
+
+<div class="education-container">
+    <div class="education-grid">
+        <div class="education-column">
+            <div class="education-header">
+                <h2>Education</h2>
+            </div>
+            <div class="education-block">
+                <h3>Nutrition</h3>
+                <p>Learn about healthy eating habits</p>
+            </div>
+            <div class="education-block practice">
+                <h3>Nutrition Practice</h3>
+                <p>Apply your nutrition knowledge</p>
+            </div>
+            <div class="education-block test">
+                <h3>Nutrition Test</h3>
+                <p>Test your understanding</p>
+            </div>
+        </div>
+        <div class="education-column">
+            <div class="education-block" style="margin-top: 89px;">
+                <h3>Sport</h3>
+                <p>Discover effective exercises</p>
+            </div>
+            <div class="education-block practice">
+                <h3>Sport Practice</h3>
+                <p>Practice your workout routine</p>
+            </div>
+            <div class="education-block test">
+                <h3>Sport Test</h3>
+                <p>Evaluate your progress</p>
+            </div>
+        </div>
+        <div class="education-column">
+            <div class="education-block" style="margin-top: 89px;">
+                <h3>Sleep</h3>
+                <p>Master healthy sleep habits</p>
+            </div>
+            <div class="education-block practice">
+                <h3>Sleep Practice</h3>
+                <p>Improve your sleep quality</p>
+            </div>
+        </div>
+        <div class="education-column exam-column">
+            <div class="education-block exam" style="margin-top: 89px;">
+                <h3>Final Exam</h3>
+                <p>Test your overall knowledge</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .education-container {
+        padding: 100px 20px 40px;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .education-header {
+        margin-bottom: 30px;
+    }
+
+    .education-header h2 {
+        color: var(--brand-color);
+        font-size: 2.5em;
+        font-weight: 600;
+        text-align: left;
+    }
+
+    .education-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        width: 100%;
+    }
+
+    .education-column {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .education-block {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .education-block:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .education-block h3 {
+        color: var(--brand-color);
+        font-size: 1.5em;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .education-block p {
+        color: var(--text-color);
+        text-align: center;
+        margin: 0;
+        font-size: 1.1em;
+    }
+
+    .education-block.practice {
+        background: var(--primary-color);
+    }
+
+    .education-block.practice h3,
+    .education-block.practice p {
+        color: var(--brand-color);
+    }
+
+    .education-block.test {
+        background: white;
+    }
+
+    .education-block.exam {
+        background: var(--brand-color);
+        height: 100%;
+    }
+
+    .education-block.exam h3,
+    .education-block.exam p {
+        color: white;
+    }
+</style>

@@ -1,0 +1,71 @@
+@model AureusVitalis.Models.ExerciseModel
+@{
+    ViewData["Title"] = "Daily Exercises";
+}
+
+<div class="exercises-container">
+    <div class="exercises-header">
+        <h2>Daily Exercises</h2>
+    </div>
+
+    <form asp-action="Exercises" asp-controller="DailyHelper" method="post" class="exercises-form">
+        <div class="gender-group">
+            <div class="gender-option">
+                <input type="radio" id="male" name="Gender" value="M" asp-for="Gender" />
+                <label for="male">М</label>
+            </div>
+            <div class="gender-option">
+                <input type="radio" id="female" name="Gender" value="F" asp-for="Gender" />
+                <label for="female">Ж</label>
+            </div>
+            <span asp-validation-for="Gender" class="text-danger"></span>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label asp-for="Age">Age</label>
+                <input type="number" asp-for="Age" class="form-input" min="14" max="100" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Weight">Weight (kg)</label>
+                <input type="number" asp-for="Weight" class="form-input" step="0.1" min="30" max="200" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="MuscleGroup">Muscle group</label>
+            <select asp-for="MuscleGroup" class="form-select">
+                <option value="">Choose muscle group</option>
+                <option value="FullBody">Full Body</option>
+                <option value="UpperBody">Upper Body</option>
+                <option value="LowerBody">Lower Body</option>
+                <option value="Core">Core</option>
+                <option value="Arms">Arms</option>
+                <option value="Legs">Legs</option>
+                <option value="Back">Back</option>
+                <option value="Chest">Chest</option>
+            </select>
+            <span asp-validation-for="MuscleGroup" class="text-danger"></span>
+        </div>
+
+        @if (Model?.GeneratedExercises != null && Model.GeneratedExercises.Any())
+        {
+            <div class="exercises-results">
+                <h3>Your Exercise Plan</h3>
+                @foreach (var exercise in Model.GeneratedExercises)
+                {
+                    <div class="exercise-card">
+                        <div class="exercise-name">@exercise.Name</div>
+                        <div class="exercise-reps">@exercise.Repetitions repetitions</div>
+                        <div class="exercise-recommendations">@exercise.Recommendations</div>
+                    </div>
+                }
+            </div>
+        }
+
+        <button type="submit" class="generate-button">Generate</button>
+    </form>
+</div>

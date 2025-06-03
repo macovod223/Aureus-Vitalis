@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using AureusVitalis.Data;            // AppDbContext
-using AureusVitalis.Data.Entities;   // AppUser
-using AureusVitalis.Models;          // RegisterModel, LoginModel
+using AureusVitalis.Data;
+using AureusVitalis.Data.Entities;
+using AureusVitalis.Models;
 using BC = BCrypt.Net.BCrypt;        
 
 namespace AureusVitalis.Services

@@ -28,6 +28,16 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+    name: "dailyHelper",
+    pattern: "DailyHelper/{action=Selection}/{id?}",
+    defaults: new { controller = "DailyHelper" });
+
+app.MapControllerRoute(
+    name: "education",
+    pattern: "Education/{action=Main}/{id?}",
+    defaults: new { controller = "Education" });
+
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
