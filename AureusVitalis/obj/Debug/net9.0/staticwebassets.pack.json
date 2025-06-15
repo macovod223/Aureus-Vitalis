@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets/css/auth.css"
     },
     {
+      "Id": "/Users/timur/RiderProjects/AureusVitalis/AureusVitalis/wwwroot/css/education.css",
+      "PackagePath": "staticwebassets/css/education.css"
+    },
+    {
       "Id": "/Users/timur/RiderProjects/AureusVitalis/AureusVitalis/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },
@@ -35,6 +39,10 @@
     {
       "Id": "/Users/timur/RiderProjects/AureusVitalis/AureusVitalis/wwwroot/images/profile.png",
       "PackagePath": "staticwebassets/images/profile.png"
+    },
+    {
+      "Id": "/Users/timur/RiderProjects/AureusVitalis/AureusVitalis/wwwroot/images/trophy.png",
+      "PackagePath": "staticwebassets/images/trophy.png"
     },
     {
       "Id": "/Users/timur/RiderProjects/AureusVitalis/AureusVitalis/wwwroot/js/auth.js",

@@ -1,0 +1,115 @@
+@* Views/Education/NutritionPractice.cshtml *@
+@model PracticeModel
+@{
+    ViewData["Title"] = "Nutrition Practice";
+    Layout = "~/Views/Education/_EducationLayout.cshtml";
+}
+
+<div class="practice-area">
+    <h1>@Model.Title</h1>
+    <div class="practice-task">
+        @foreach (var task in Model.Tasks)
+        {
+            <div class="task-item" data-task-id="@task.GetHashCode()">
+                <h3>@task.Question</h3>
+                <div class="task-options">
+                    @foreach (var option in task.Options)
+                    {
+                        <div class="option" onclick="selectOption(this)">
+                            @option
+                        </div>
+                    }
+                </div>
+                <div class="explanation hidden">
+                    @task.Explanation
+                </div>
+            </div>
+        }
+    </div>
+    <div class="navigation-buttons">
+        <button class="nav-button check-button" onclick="checkAnswers()">Проверить</button>
+        <button class="nav-button next-button" onclick="nextPractice()" disabled>Далее</button>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        let selectedAnswers = {};
+
+        function selectOption(element) {
+            const taskItem = element.closest('.task-item');
+            const options = taskItem.querySelectorAll('.option');
+
+            options.forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+
+            selectedAnswers[taskItem.dataset.taskId] = element.textContent.trim();
+
+            checkIfAllAnswered();
+        }
+
+        function checkIfAllAnswered() {
+            const tasks = document.querySelectorAll('.task-item');
+            const checkButton = document.querySelector('.check-button');
+
+            const allAnswered = Array.from(tasks).every(task =>
+                selectedAnswers[task.dataset.taskId]);
+
+            checkButton.disabled = !allAnswered;
+        }
+
+        function checkAnswers() {
+            // Здесь будет AJAX запрос для проверки ответов
+            fetch('/Education/CheckPracticeAnswers', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(selectedAnswers)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    showResults(data);
+                    document.querySelector('.next-button').disabled = false;
+                });
+        }
+
+        function showResults(results) {
+            const tasks = document.querySelectorAll('.task-item');
+            tasks.forEach(task => {
+                const taskId = task.dataset.taskId;
+                const explanation = task.querySelector('.explanation');
+                const selectedOption = task.querySelector('.option.selected');
+
+                if (results[taskId]) {
+                    selectedOption.classList.add('correct');
+                } else {
+                    selectedOption.classList.add('incorrect');
+                }
+
+                explanation.classList.remove('hidden');
+            });
+        }
+    </script>
+}
+
+@section Sidebar {
+    <div class="lessons-list">
+        <div class="lesson-item">
+            <span class="lesson-number">1</span>
+            <span class="lesson-title">Питание</span>
+        </div>
+        <div class="lesson-item @(ViewContext.RouteData.Values["action"].ToString() == "Nutrition" ? "active" : "")" data-url="/Education/Nutrition">
+            <span class="lesson-number">1.1</span>
+            <span class="lesson-title">Питание. Теория</span>
+        </div>
+        <div class="lesson-item @(ViewContext.RouteData.Values["action"].ToString() == "NutritionPractice" ? "active" : "")" data-url="/Education/NutritionPractice">
+            <span class="lesson-number">1.2</span>
+            <span class="lesson-title">Питание. Практика</span>
+        </div>
+        <div class="lesson-item @(ViewContext.RouteData.Values["action"].ToString() == "NutritionTest" ? "active" : "")" data-url="/Education/NutritionTest">
+            <span class="lesson-number">1.3</span>
+            <span class="lesson-title">Питание. Тест</span>
+        </div>
+    </div>
+}

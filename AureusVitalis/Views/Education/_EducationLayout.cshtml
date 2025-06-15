@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - Education</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/education.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <style>
+        .education-block.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+<header class="site-header">
+    <a href="/" class="nav-icon">
+        <img src="~/images/home.png" alt="Home" />
+    </a>
+    <div class="site-title">Aureus&Vitalis</div>
+    <a href="/DailyHelper/Selection" class="nav-icon daily-helper-link">
+        <span>Daily helper</span>
+    </a>
+</header>
+
+<div class="education-wrapper">
+    <div class="progress-sidebar">
+        <div class="progress-header">
+            <h3>Прогресс обучения</h3>
+            <div class="progress-bar">
+                <div class="progress" style="width: @ViewBag.Progress%"></div>
+            </div>
+            <span class="progress-text">@ViewBag.Progress%</span>
+        </div>
+        <div class="lessons-list">
+            @RenderSection("Sidebar", required: false)
+        </div>
+    </div>
+    <div class="content-area">
+        @RenderBody()
+    </div>
+</div>
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/education.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Обработка навигации по урокам
+        const lessonItems = document.querySelectorAll('.lesson-item');
+        lessonItems.forEach(item => {
+            item.addEventListener('click', function() {
+                if (this.dataset.url) {
+                    window.location.href = this.dataset.url;
+                }
+            });
+        });
+
+        // Обновление прогресса
+        function updateProgress() {
+            const completed = document.querySelectorAll('.lesson-item.completed').length;
+            const total = document.querySelectorAll('.lesson-item').length;
+            const progress = Math.round((completed / total) * 100);
+            document.querySelector('.progress').style.width = `${progress}%`;
+            document.querySelector('.progress-text').textContent = `${progress}%`;
+        }
+
+        // Проверка доступности следующего урока
+        function checkNextLessonAvailability() {
+            const nextButton = document.querySelector('.next-button');
+            const currentItem = document.querySelector('.lesson-item.active');
+            const nextItem = currentItem?.nextElementSibling;
+
+            if (nextButton && nextItem) {
+                nextButton.disabled = !currentItem.classList.contains('completed');
+            }
+        }
+
+        // Обработчики для кнопок навигации
+        const prevButton = document.querySelector('.prev-button');
+        const nextButton = document.querySelector('.next-button');
+
+        if (prevButton) {
+            prevButton.addEventListener('click', function() {
+                const currentItem = document.querySelector('.lesson-item.active');
+                const prevItem = currentItem?.previousElementSibling;
+                if (prevItem?.dataset.url) {
+                    window.location.href = prevItem.dataset.url;
+                }
+            });
+        }
+
+        if (nextButton) {
+            nextButton.addEventListener('click', function() {
+                const currentItem = document.querySelector('.lesson-item.active');
+                const nextItem = currentItem?.nextElementSibling;
+                if (nextItem?.dataset.url) {
+                    window.location.href = nextItem.dataset.url;
+                }
+            });
+        }
+
+        // Инициализация
+        updateProgress();
+        checkNextLessonAvailability();
+    });
+</script>
+</body>
+</html>

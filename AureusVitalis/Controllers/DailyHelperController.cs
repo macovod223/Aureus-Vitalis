@@ -20,6 +20,7 @@ namespace AureusVitalis.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Здесь будет логика расчета диеты и режима сна
                 return View(model);
             }
 
@@ -36,6 +37,7 @@ namespace AureusVitalis.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Пример генерации упражнений
                 model.GeneratedExercises = GenerateExercises(model);
                 return View(model);
             }
@@ -47,6 +49,7 @@ namespace AureusVitalis.Controllers
         {
             var exercises = new List<Exercise>();
 
+            // Примеры упражнений в зависимости от выбранной группы мышц
             switch (model.MuscleGroup.ToLower())
             {
                 case "fullbody":
@@ -89,7 +92,7 @@ namespace AureusVitalis.Controllers
                     exercises.Add(new Exercise
                     {
                         Name = "Планка",
-                        Repetitions = 30,
+                        Repetitions = 30, // секунд
                         Recommendations = "Держите тело в прямой линии, втяните живот"
                     });
                     exercises.Add(new Exercise
@@ -100,14 +103,16 @@ namespace AureusVitalis.Controllers
                     });
                     break;
 
+                // Добавьте другие группы мышц по аналогии
             }
 
+            // Добавляем рекомендации по весу и возрасту
             if (model.Age > 50)
             {
                 foreach (var exercise in exercises)
                 {
                     exercise.Recommendations += " Выполняйте упражнения в комфортном темпе.";
-                    exercise.Repetitions = (int)(exercise.Repetitions * 0.8);
+                    exercise.Repetitions = (int)(exercise.Repetitions * 0.8); // Уменьшаем количество повторений
                 }
             }
 
@@ -116,6 +121,7 @@ namespace AureusVitalis.Controllers
 
         private int CalculateReps(string gender, string exercise)
         {
+            // Простая логика расчета повторений в зависимости от пола
             switch (exercise)
             {
                 case "pushups":

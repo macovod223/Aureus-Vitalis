@@ -1,0 +1,101 @@
+@* Views/Education/Sport.cshtml *@
+@model EducationContentModel
+@{
+    ViewData["Title"] = "Sport Education";
+    Layout = "~/Views/Education/_EducationLayout.cshtml";
+}
+
+<div class="lesson-content">
+    <h1>Физическая активность и здоровье</h1>
+    
+    <div class="lesson-section">
+        <h2>Основы физической активности</h2>
+        <p>Регулярная физическая активность является ключевым фактором здорового образа жизни. Она помогает:</p>
+        <ul>
+            <li>Укрепить сердечно-сосудистую систему</li>
+            <li>Улучшить мышечную силу и выносливость</li>
+            <li>Поддерживать здоровый вес</li>
+            <li>Улучшить качество сна</li>
+            <li>Снизить уровень стресса</li>
+        </ul>
+    </div>
+
+    <div class="lesson-section">
+        <h2>Виды физической активности</h2>
+        <div class="activity-types">
+            <div class="activity-card">
+                <h3>Кардио тренировки</h3>
+                <p>Бег, плавание, велосипед, ходьба</p>
+                <div class="activity-benefits">
+                    <span>Улучшает выносливость</span>
+                    <span>Укрепляет сердце</span>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <h3>Силовые тренировки</h3>
+                <p>Упражнения с весом тела, тренажеры, свободные веса</p>
+                <div class="activity-benefits">
+                    <span>Укрепляет мышцы</span>
+                    <span>Улучшает метаболизм</span>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <h3>Гибкость</h3>
+                <p>Растяжка, йога, пилатес</p>
+                <div class="activity-benefits">
+                    <span>Улучшает подвижность</span>
+                    <span>Снижает риск травм</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="lesson-section">
+        <h2>Рекомендации по тренировкам</h2>
+        <div class="recommendations">
+            <div class="recommendation-item">
+                <h3>Частота</h3>
+                <p>150 минут умеренной активности или 75 минут интенсивной активности в неделю</p>
+            </div>
+            <div class="recommendation-item">
+                <h3>Интенсивность</h3>
+                <p>Умеренная: можете разговаривать, но не петь</p>
+                <p>Высокая: можете сказать лишь несколько слов</p>
+            </div>
+            <div class="recommendation-item">
+                <h3>Безопасность</h3>
+                <p>Начинайте постепенно</p>
+                <p>Слушайте своё тело</p>
+                <p>Правильная техника важнее количества</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation-buttons">
+        <button class="nav-button prev-button" onclick="previousLesson()">Назад</button>
+        <button class="nav-button next-button" onclick="nextLesson()">Далее</button>
+    </div>
+</div>
+
+@section Sidebar {
+    <div class="lessons-list">
+        <div class="lesson-item">
+            <span class="lesson-number">2</span>
+            <span class="lesson-title">Спорт</span>
+        </div>
+        <div class="lesson-item @(ViewContext.RouteData.Values["action"].ToString() == "Sport" ? "active" : "")" data-url="/Education/Sport">
+            <span class="lesson-number">2.1</span>
+            <span class="lesson-title">Спорт. Теория</span>
+        </div>
+        <div class="lesson-item @(ViewContext.RouteData.Values["action"].ToString() == "SportPractice" ? "active" : "")" data-url="/Education/SportPractice">
+            <span class="lesson-number">2.2</span>
+            <span class="lesson-title">Спорт. Практика</span>
+        </div>
+        <div class="lesson-item @(ViewContext.RouteData.Values["action"].ToString() == "SportTest" ? "active" : "")" data-url="/Education/SportTest">
+            <span class="lesson-number">2.3</span>
+            <span class="lesson-title">Спорт. Тест</span>
+        </div>
+    </div>
+}

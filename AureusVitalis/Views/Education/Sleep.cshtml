@@ -1,0 +1,96 @@
+@* Views/Education/Sleep.cshtml *@
+@model EducationContentModel
+@{
+    ViewData["Title"] = "Sleep Education";
+    Layout = "~/Views/Education/_EducationLayout.cshtml";
+}
+
+<div class="lesson-content">
+    <h1>Здоровый сон</h1>
+
+    <div class="lesson-section">
+        <h2>Важность сна</h2>
+        <p>Качественный сон является основой здоровья и благополучия. Во время сна:</p>
+        <ul>
+            <li>Восстанавливается нервная система</li>
+            <li>Укрепляется иммунитет</li>
+            <li>Улучшается память и концентрация</li>
+            <li>Регулируется метаболизм</li>
+            <li>Снижается уровень стресса</li>
+        </ul>
+    </div>
+
+    <div class="lesson-section">
+        <h2>Фазы сна</h2>
+        <div class="sleep-phases">
+            <div class="phase-card">
+                <h3>Быстрый сон (REM)</h3>
+                <ul>
+                    <li>Активная работа мозга</li>
+                    <li>Сновидения</li>
+                    <li>Обработка информации</li>
+                </ul>
+            </div>
+            <div class="phase-card">
+                <h3>Медленный сон</h3>
+                <ul>
+                    <li>Физическое восстановление</li>
+                    <li>Рост и развитие</li>
+                    <li>Укрепление иммунитета</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="lesson-section">
+        <h2>Рекомендации для здорового сна</h2>
+        <div class="sleep-recommendations">
+            <div class="recommendation-card">
+                <h3>Режим сна</h3>
+                <ul>
+                    <li>Ложитесь и вставайте в одно время</li>
+                    <li>7-9 часов сна для взрослых</li>
+                    <li>Избегайте дневного сна более 30 минут</li>
+                </ul>
+            </div>
+            <div class="recommendation-card">
+                <h3>Окружающая среда</h3>
+                <ul>
+                    <li>Температура 18-22°C</li>
+                    <li>Темнота и тишина</li>
+                    <li>Удобная кровать и подушка</li>
+                </ul>
+            </div>
+            <div class="recommendation-card">
+                <h3>Вечерние привычки</h3>
+                <ul>
+                    <li>Избегайте кофеина после 14:00</li>
+                    <li>Ограничьте синий свет за 2 часа до сна</li>
+                    <li>Легкий ужин за 2-3 часа до сна</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation-buttons">
+        <button class="nav-button prev-button" onclick="previousLesson()">Назад</button>
+        <button class="nav-button next-button" onclick="nextLesson()">Далее</button>
+    </div>
+</div>
+
+@section Sidebar {
+    <div class="lessons-list">
+        <div class="lesson-item">
+            <span class="lesson-number">3</span>
+            <span class="lesson-title">Сон</span>
+        </div>
+        <div class="lesson-item @(ViewContext.RouteData.Values["action"].ToString() == "Sleep" ? "active" : "")" data-url="/Education/Sleep">
+            <span class="lesson-number">3.1</span>
+            <span class="lesson-title">Сон. Теория</span>
+        </div>
+        <div class="lesson-item @(ViewContext.RouteData.Values["action"].ToString() == "SleepPractice" ? "active" : "")" data-url="/Education/SleepPractice">
+            <span class="lesson-number">3.2</span>
+            <span class="lesson-title">Сон. Практика</span>
+        </div>
+    </div>
+}

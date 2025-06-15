@@ -1,0 +1,176 @@
+@* Views/Education/SportPractice.cshtml *@
+@model PracticeModel
+@{
+    ViewData["Title"] = "Sport Practice";
+    Layout = "~/Views/Education/_EducationLayout.cshtml";
+}
+
+<div class="practice-area">
+    <h1>Практика: Физическая активность</h1>
+
+    <div class="practice-task">
+        <div class="task-item" data-task-id="1">
+            <h3>Составление тренировочного плана</h3>
+            <p>Создайте недельный план тренировок, учитывая рекомендации по частоте и интенсивности:</p>
+            <div class="workout-planner">
+                @foreach (var day in new[] { "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье" })
+                {
+                    <div class="day-plan">
+                        <h4>@day</h4>
+                        <select class="workout-type">
+                            <option value="">Выберите тип тренировки</option>
+                            <option value="cardio">Кардио</option>
+                            <option value="strength">Силовая</option>
+                            <option value="flexibility">Растяжка</option>
+                            <option value="rest">Отдых</option>
+                        </select>
+                        <select class="workout-intensity">
+                            <option value="">Выберите интенсивность</option>
+                            <option value="low">Низкая</option>
+                            <option value="medium">Средняя</option>
+                            <option value="high">Высокая</option>
+                        </select>
+                        <input type="number" class="workout-duration" placeholder="Длительность (мин)" min="0" max="180" />
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="task-item" data-task-id="2">
+            <h3>Техника выполнения упражнений</h3>
+            <p>Определите правильную последовательность выполнения базовых упражнений:</p>
+            <div class="exercise-sequence">
+                <div class="exercise-step" draggable="true">
+                    <span class="step-number">1</span>
+                    <p>Разминка и разогрев мышц</p>
+                </div>
+                <div class="exercise-step" draggable="true">
+                    <span class="step-number">2</span>
+                    <p>Основная часть тренировки</p>
+                </div>
+                <div class="exercise-step" draggable="true">
+                    <span class="step-number">3</span>
+                    <p>Заминка и растяжка</p>
+                </div>
+                <div class="exercise-step" draggable="true">
+                    <span class="step-number">4</span>
+                    <p>Восстановление и отдых</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation-buttons">
+        <button class="nav-button check-button" onclick="checkAnswers()">Проверить</button>
+        <button class="nav-button next-button" onclick="nextPractice()" disabled>Далее</button>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Добавим функционал для drag-and-drop
+        const exerciseSteps = document.querySelectorAll('.exercise-step');
+        exerciseSteps.forEach(step => {
+            step.addEventListener('dragstart', handleDragStart);
+            step.addEventListener('dragover', handleDragOver);
+            step.addEventListener('drop', handleDrop);
+        });
+
+        function handleDragStart(e) {
+            e.dataTransfer.setData('text/plain', e.target.innerHTML);
+            e.target.classList.add('dragging');
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            const draggedItem = document.querySelector('.dragging');
+            const dropTarget = e.target.closest('.exercise-step');
+
+            if (draggedItem && dropTarget) {
+                const tempHtml = dropTarget.innerHTML;
+                dropTarget.innerHTML = draggedItem.innerHTML;
+                draggedItem.innerHTML = tempHtml;
+            }
+
+            draggedItem.classList.remove('dragging');
+        }
+
+        function checkAnswers() {
+            let isValid = true;
+            const workoutPlan = [];
+
+            // Проверка плана тренировок
+            document.querySelectorAll('.day-plan').forEach(day => {
+                const type = day.querySelector('.workout-type').value;
+                const intensity = day.querySelector('.workout-intensity').value;
+                const duration = day.querySelector('.workout-duration').value;
+
+                if (type && intensity && duration) {
+                    workoutPlan.push({ type, intensity, duration });
+                } else {
+                    isValid = false;
+                }
+            });
+
+            // Проверка последовательности упражнений
+            const sequence = Array.from(document.querySelectorAll('.exercise-step'))
+                .map(step => step.querySelector('p').textContent);
+
+            if (isValid && validateWorkoutPlan(workoutPlan) && validateSequence(sequence)) {
+                document.querySelector('.next-button').disabled = false;
+                showSuccess();
+            } else {
+                showError();
+            }
+        }
+
+        function validateWorkoutPlan(plan) {
+            // Проверяем, что есть хотя бы 3 тренировки в неделю
+            const workoutDays = plan.filter(day => day.type !== 'rest').length;
+            return workoutDays >= 3;
+        }
+
+        function validateSequence(sequence) {
+            const correctSequence = [
+                'Разминка и разогрев мышц',
+                'Основная часть тренировки',
+                'Заминка и растяжка',
+                'Восстановление и отдых'
+            ];
+            return JSON.stringify(sequence) === JSON.stringify(correctSequence);
+        }
+
+        function showSuccess() {
+            alert('Отлично! Вы успешно выполнили практическое задание!');
+        }
+
+        function showError() {
+            alert('Проверьте правильность заполнения всех полей и последовательность упражнений.');
+        }
+    </script>
+}
+
+@section Sidebar {
+    <div class="lessons-list">
+        <div class="lesson-item">
+            <span class="lesson-number">2</span>
+            <span class="lesson-title">Спорт</span>
+        </div>
+        <div class="lesson-item @(ViewContext.RouteData.Values["action"].ToString() == "Sport" ? "active" : "")" data-url="/Education/Sport">
+            <span class="lesson-number">2.1</span>
+            <span class="lesson-title">Спорт. Теория</span>
+        </div>
+        <div class="lesson-item @(ViewContext.RouteData.Values["action"].ToString() == "SportPractice" ? "active" : "")" data-url="/Education/SportPractice">
+            <span class="lesson-number">2.2</span>
+            <span class="lesson-title">Спорт. Практика</span>
+        </div>
+        <div class="lesson-item @(ViewContext.RouteData.Values["action"].ToString() == "SportTest" ? "active" : "")" data-url="/Education/SportTest">
+            <span class="lesson-number">2.3</span>
+            <span class="lesson-title">Спорт. Тест</span>
+        </div>
+    </div>
+}

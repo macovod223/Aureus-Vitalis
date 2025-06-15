@@ -9,9 +9,25 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/AureusVitalis.styles.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/css/auth.css"/>
+    <link rel="stylesheet" href="~/css/education.css" asp-append-version="true"/>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+@{
+    if (Context.Request.Path.StartsWithSegments("/Education") && !Context.Request.Path.Value.Contains("Main"))
+    {
+        Layout = "~/Views/Education/_EducationLayout.cshtml";
+    }
+}
+
+@{
+    if (Context.Request.Path.StartsWithSegments("/Achievements") && !Context.Request.Path.Value.Contains("Main"))
+    {
+        Layout = "~/Views/Education/_EducationLayout.cshtml";
+    }
+}
+
 @if (Context.Request.Path.StartsWithSegments("/Auth"))
 {
     @RenderBody()
@@ -20,13 +36,13 @@ else if (Context.Request.Path.StartsWithSegments("/DailyHelper") || Context.Requ
 {
     <header class="site-header">
         <a href="/" class="nav-icon">
-            <img src="~/images/home.png" alt="Home" />
+            <img src="~/images/home.png" alt="Home"/>
         </a>
         <div class="site-title">Aureus&Vitalis</div>
         @if (Context.Request.Path.StartsWithSegments("/DailyHelper"))
         {
             <a href="/Education/Main" class="nav-icon">
-                <img src="~/images/education.png" alt="Education" />
+                <img src="~/images/education.png" alt="Education"/>
             </a>
         }
         else
@@ -34,6 +50,21 @@ else if (Context.Request.Path.StartsWithSegments("/DailyHelper") || Context.Requ
             <a href="/DailyHelper/Selection" class="nav-icon daily-helper-link">
                 <span>Daily helper</span>
             </a>
+        }
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="user-progress">
+                <div class="progress-indicator">
+                    <div class="progress-bar" style="width: @ViewBag.UserProgress%"></div>
+                </div>
+                <span class="progress-text">@ViewBag.UserProgress%</span>
+                @if (ViewBag.UserProgress >= 100)
+                {
+                    <a href="/Education/Certificate" class="certificate-link">
+                        <img src="~/images/certificate.png" alt="Get Certificate" title="Получить сертификат"/>
+                    </a>
+                }
+            </div>
         }
     </header>
     <div class="main-container">
@@ -61,11 +92,36 @@ else
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Achievements" asp-action="Index">Достижения</a>
+                        </li>
                     </ul>
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Auth" asp-action="Login">Login</a>
-                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Auth" asp-action="Profile">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <form asp-controller="Auth" asp-action="Logout" method="post">
+                                    <button type="submit" class="nav-link text-dark border-0 bg-transparent">Logout</button>
+                                </form>
+                            </li>
+                            @if (ViewBag.UserProgress >= 100)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Education" asp-action="Certificate">
+                                        <img src="~/images/certificate.png" alt="Certificate" class="certificate-icon"/>
+                                    </a>
+                                </li>
+                            }
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Auth" asp-action="Login">Login</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -94,5 +150,60 @@ else
 {
     <script src="~/js/exercises.js"></script>
 }
+@if (Context.Request.Path.StartsWithSegments("/Education"))
+{
+    <script src="~/js/education.js"></script>
+}
+
+@if (Context.Request.Path.Value?.Contains("Practice") == true)
+{
+    <script src="~/js/practice.js"></script>
+}
+
+@if (Context.Request.Path.Value?.Contains("Test") == true || Context.Request.Path.Value?.Contains("Exam") == true)
+{
+    <script src="~/js/test.js"></script>
+}
+
+@* Добавляем скрипт для обработки прогресса *@
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Обновление прогресса при завершении урока/теста
+        function updateUserProgress(progress) {
+            fetch('/Education/UpdateProgress', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ progress: progress })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const progressBar = document.querySelector('.progress-bar');
+                    const progressText = document.querySelector('.progress-text');
+                    if (progressBar && progressText) {
+                        progressBar.style.width = `${data.progress}%`;
+                        progressText.textContent = `${data.progress}%`;
+                    }
+                }
+            });
+        }
+
+        // Проверка доступности финального экзамена
+        if (document.querySelector('.exam-block')) {
+            fetch('/Education/CheckExamAvailability')
+                .then(response => response.json())
+                .then(data => {
+                    const examBlock = document.querySelector('.exam-block');
+                    if (!data.isAvailable) {
+                        examBlock.classList.add('disabled');
+                        examBlock.title = data.message;
+                    }
+                });
+        }
+    });
+</script>
+
 </body>
 </html>

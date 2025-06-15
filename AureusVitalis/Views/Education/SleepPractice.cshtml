@@ -1,0 +1,134 @@
+@* Views/Education/SleepPractice.cshtml *@
+@model PracticeModel
+@{
+    ViewData["Title"] = "Sleep Practice";
+    Layout = "~/Views/Education/_EducationLayout.cshtml";
+}
+
+<div class="practice-area">
+    <h1>Практика: Здоровый сон</h1>
+
+    <div class="practice-task">
+        <div class="task-item" data-task-id="1">
+            <h3>Анализ режима сна</h3>
+            <p>Заполните дневник сна за неделю:</p>
+            <div class="sleep-diary">
+                @foreach (var day in new[] { "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье" })
+                {
+                    <div class="sleep-day">
+                        <h4>@day</h4>
+                        <div class="sleep-inputs">
+                            <input type="time" class="sleep-time" placeholder="Время отхода ко сну" />
+                            <input type="time" class="wake-time" placeholder="Время пробуждения" />
+                            <select class="sleep-quality">
+                                <option value="">Качество сна</option>
+                                <option value="1">Плохое</option>
+                                <option value="2">Удовлетворительное</option>
+                                <option value="3">Хорошее</option>
+                                <option value="4">Отличное</option>
+                            </select>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="task-item" data-task-id="2">
+            <h3>Оценка факторов, влияющих на сон</h3>
+            <div class="factors-checklist">
+                <div class="factor">
+                    <input type="checkbox" id="factor1" />
+                    <label for="factor1">Использование электронных устройств перед сном</label>
+                </div>
+                <div class="factor">
+                    <input type="checkbox" id="factor2" />
+                    <label for="factor2">Употребление кофеина после 14:00</label>
+                </div>
+                <div class="factor">
+                    <input type="checkbox" id="factor3" />
+                    <label for="factor3">Физическая активность за 2-3 часа до сна</label>
+                </div>
+                <div class="factor">
+                    <input type="checkbox" id="factor4" />
+                    <label for="factor4">Тяжелая пища перед сном</label>
+                </div>
+                <div class="factor">
+                    <input type="checkbox" id="factor5" />
+                    <label for="factor5">Яркий свет в спальне</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation-buttons">
+        <button class="nav-button check-button" onclick="checkAnswers()">Проверить</button>
+        <button class="nav-button next-button" onclick="nextPractice()" disabled>Далее</button>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function checkAnswers() {
+            let isValid = true;
+            const sleepData = [];
+
+            // Проверка дневника сна
+            document.querySelectorAll('.sleep-day').forEach(day => {
+                const sleepTime = day.querySelector('.sleep-time').value;
+                const wakeTime = day.querySelector('.wake-time').value;
+                const quality = day.querySelector('.sleep-quality').value;
+
+                if (sleepTime && wakeTime && quality) {
+                    sleepData.push({ sleepTime, wakeTime, quality });
+                } else {
+                    isValid = false;
+                }
+            });
+
+            // Проверка факторов
+            const selectedFactors = document.querySelectorAll('.factor input:checked');
+
+            if (isValid && validateSleepSchedule(sleepData) && selectedFactors.length > 0) {
+                document.querySelector('.next-button').disabled = false;
+                showSuccess();
+            } else {
+                showError();
+            }
+        }
+
+        function validateSleepSchedule(data) {
+            // Проверяем, что пользователь спит 7-9 часов
+            return data.every(day => {
+                const sleep = new Date(`2000/01/01 ${day.sleepTime}`);
+                const wake = new Date(`2000/01/01 ${day.wakeTime}`);
+                const hours = (wake - sleep) / (1000 * 60 * 60);
+                return hours >= 7 && hours <= 9;
+            });
+        }
+
+        function showSuccess() {
+            alert('Отлично! Вы успешно проанализировали свой режим сна!');
+        }
+
+        function showError() {
+            alert('Пожалуйста, заполните все поля дневника сна и отметьте факторы, влияющие на ваш сон.');
+        }
+    </script>
+}
+
+@section Sidebar {
+    <div class="lessons-list">
+        <div class="lesson-item">
+            <span class="lesson-number">3</span>
+            <span class="lesson-title">Сон</span>
+        </div>
+        <div class="lesson-item @(ViewContext.RouteData.Values["action"].ToString() == "Sleep" ? "active" : "")" data-url="/Education/Sleep">
+            <span class="lesson-number">3.1</span>
+            <span class="lesson-title">Сон. Теория</span>
+        </div>
+        <div class="lesson-item @(ViewContext.RouteData.Values["action"].ToString() == "SleepPractice" ? "active" : "")" data-url="/Education/SleepPractice">
+            <span class="lesson-number">3.2</span>
+            <span class="lesson-title">Сон. Практика</span>
+        </div>
+    </div>
+}

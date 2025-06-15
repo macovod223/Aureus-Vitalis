@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Анимация появления карточек с упражнениями
     const exerciseCards = document.querySelectorAll('.exercise-card');
     exerciseCards.forEach((card, index) => {
         card.style.opacity = '0';
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, index * 100);
     });
 
+    // Валидация формы на стороне клиента
     const form = document.querySelector('.exercises-form');
     const ageInput = document.querySelector('input[name="Age"]');
     const weightInput = document.querySelector('input[name="Weight"]');
@@ -17,17 +19,20 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(e) {
         let isValid = true;
 
+        // Проверка выбора пола
         const gender = document.querySelector('input[name="Gender"]:checked');
         if (!gender) {
             isValid = false;
             showError('Gender', 'Please select your gender');
         }
 
+        // Проверка возраста
         if (!ageInput.value || ageInput.value < 14 || ageInput.value > 100) {
             isValid = false;
             showError('Age', 'Age must be between 14 and 100');
         }
 
+        // Проверка веса
         if (!weightInput.value || weightInput.value < 30 || weightInput.value > 200) {
             isValid = false;
             showError('Weight', 'Weight must be between 30 and 200 kg');
