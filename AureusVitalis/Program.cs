@@ -7,20 +7,17 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ─────────── База данных ───────────
 builder.Services.AddDbContext<AppDbContext>(opts =>
     opts.UseNpgsql(
         builder.Configuration.GetConnectionString("DefaultConnection"),
         o => o.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)));
 
-// ─────────── DI контейнер ───────────
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ICertificateService, CertificateService>();
 
 builder.Services.Configure<EmailOptions>(
     builder.Configuration.GetSection("Email"));
 
-// ─────────── Cookie-auth ────────────
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(o =>
     {
@@ -31,12 +28,10 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         o.SlidingExpiration = true;
     });
 
-// MVC
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// ─────────── pipeline ───────────────
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -50,7 +45,6 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// ─────────── маршруты ───────────────
 app.MapControllerRoute(
     name: "dailyHelper",
     pattern: "DailyHelper/{action=Selection}/{id?}",
@@ -65,5 +59,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.MapControllers();        // для CertificateController и др.
+app.MapControllers();
 app.Run();
