@@ -1,180 +1,124 @@
-@* Views/Education/NutritionTest.cshtml *@
 @model TestModel
 @{
-    ViewData["Title"] = "Nutrition Test";
-    Layout = "~/Views/Education/_EducationLayout.cshtml";
+  ViewData["Title"] = "Nutrition Test";
+  Layout = "~/Views/Education/_EducationLayout.cshtml";
 }
 
 <div class="test-area">
-    <div class="test-header">
-        <h1>@Model.Title</h1>
-        <div class="timer" id="timer">
-            Оставшееся время: <span id="timeLeft">@Model.TimeLimit:00</span>
-        </div>
+  <div class="test-header">
+    <h1>@Model.Title</h1>
+    <div class="timer" id="timer">
+      Оставшееся время: <span id="timeLeft">@($"{Model.TimeLimit}:00")</span>
     </div>
+  </div>
 
-    <form id="testForm" method="post">
+  <form id="testForm" method="post">
+    @for (int i = 0; i < Model.Questions.Count; i++)
+    {
+      <div class="question-block" data-question="@i">
+        <h3>Вопрос @(i + 1)</h3>
+        <p>@Model.Questions[i].Question</p>
+        <div class="options">
+          @foreach (var opt in Model.Questions[i].Options)
+          {
+            <label class="option">
+              <input type="radio" name="question_@i" value="@opt" />
+              <span>@opt</span>
+            </label>
+          }
+        </div>
+      </div>
+    }
+
+    <div class="test-navigation">
+      <button type="button" id="prevBtn" class="nav-button">Назад</button>
+      <div class="question-indicators">
         @for (int i = 0; i < Model.Questions.Count; i++)
         {
-            var question = Model.Questions[i];
-            <div class="question-block" data-question="@i">
-                <h3>Вопрос @(i + 1)</h3>
-                <p>@question.Question</p>
-                <div class="options">
-                    @foreach (var option in question.Options)
-                    {
-                        <label class="option">
-                            <input type="radio" name="question_@i" value="@option" />
-                            <span>@option</span>
-                        </label>
-                    }
-                </div>
-            </div>
+          <span class="indicator" data-question="@i"></span>
         }
-        <div class="test-navigation">
-            <button type="button" class="nav-button" onclick="previousQuestion()">Назад</button>
-            <div class="question-indicators">
-                @for (int i = 0; i < Model.Questions.Count; i++)
-                {
-                    <span class="indicator" data-question="@i"></span>
-                }
-            </div>
-            <button type="button" class="nav-button" onclick="nextQuestion()">Далее</button>
-        </div>
-        <button type="submit" class="submit-button" disabled>Завершить тест</button>
-    </form>
+      </div>
+      <button type="button" id="nextBtn" class="nav-button">Далее</button>
+    </div>
+
+    <button type="submit" class="submit-button" disabled>Завершить тест</button>
+  </form>
 </div>
 
 @section Scripts {
-    <script>
-        let currentQuestion = 0;
+  <script>
+    document.addEventListener('DOMContentLoaded', ()=> {
+      const form      = document.getElementById('testForm');
+      const submitBtn = form.querySelector('.submit-button');
+      const prevBtn   = document.getElementById('prevBtn');
+      const nextBtn   = document.getElementById('nextBtn');
+      const blocks    = Array.from(document.querySelectorAll('.question-block'));
+      const inds      = Array.from(document.querySelectorAll('.indicator'));
+      const total     = blocks.length;
+      let current     = 0;
+      let answers     = {};
+
+      function showQuestion(idx) {
+        blocks.forEach(b=>b.style.display='none');
+        blocks[idx].style.display='block';
+        prevBtn.disabled = idx===0;
+        nextBtn.disabled = idx===total-1;
+        inds.forEach((ind,i)=>{
+          ind.classList.toggle('current', i===idx);
+          ind.classList.toggle('answered', `question_${i}` in answers);
+        });
+      }
+
+      prevBtn.addEventListener('click', ()=>{ if(current>0) showQuestion(--current); });
+      nextBtn.addEventListener('click', ()=>{ if(current<total-1) showQuestion(++current); });
+
+      form.addEventListener('change', e=>{
+        if(e.target.matches('input[type="radio"]')) {
+          answers[e.target.name]=e.target.value;
+          submitBtn.disabled = Object.keys(answers).length < total;
+          showQuestion(current);
+        }
+      });
+
+      // таймер
+      (function(){
         let timeLeft = @Model.TimeLimit * 60;
-        let answers = {};
+        const ti = setInterval(()=>{
+          timeLeft--;
+          const m=Math.floor(timeLeft/60), s=timeLeft%60;
+          document.getElementById('timeLeft').textContent = `${m}:${s.toString().padStart(2,'0')}`;
+          if(timeLeft<=0){ clearInterval(ti); form.requestSubmit(); }
+        },1000);
+      })();
 
-        function startTimer() {
-            const timerInterval = setInterval(() => {
-                timeLeft--;
-                updateTimerDisplay();
+      form.addEventListener('submit', e=>{
+        e.preventDefault();
+        const payload = Object.entries(answers).map(([k,v])=>({ questionKey:k, selected:v }));
+        fetch('/Education/SubmitTest', {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify(payload)
+        })
+        .then(r=>r.json())
+        .then(res=>{
+          document.querySelector('.test-area').innerHTML = `
+            <div class="test-results">
+              <h2>Результаты теста</h2>
+              <p>Правильных ответов: ${res.correctAnswers}/${res.totalQuestions}</p>
+              <p>Процент: ${res.percentage}%</p>
+              <p>${res.passed? 'Успех!':'Не прошло, попробуйте снова.'}</p>
+              <button onclick="location.href='/Education/Main'" class="nav-button">Вернуться</button>
+            </div>`;
+        })
+        .catch(console.error);
+      });
 
-                if (timeLeft <= 0) {
-                    clearInterval(timerInterval);
-                    submitTest();
-                }
-            }, 1000);
-        }
-
-        function updateTimerDisplay() {
-            const minutes = Math.floor(timeLeft / 60);
-            const seconds = timeLeft % 60;
-            document.getElementById('timeLeft').textContent =
-                `${minutes}:${seconds.toString().padStart(2, '0')}`;
-        }
-
-        function showQuestion(index) {
-            document.querySelectorAll('.question-block').forEach(block => {
-                block.style.display = 'none';
-            });
-            document.querySelector(`[data-question="${index}"]`).style.display = 'block';
-            updateNavigationButtons();
-            updateQuestionIndicators();
-        }
-
-        function updateQuestionIndicators() {
-            document.querySelectorAll('.indicator').forEach((indicator, index) => {
-                indicator.classList.toggle('current', index === currentQuestion);
-                indicator.classList.toggle('answered', answers[`question_${index}`]);
-            });
-        }
-
-        function nextQuestion() {
-            if (currentQuestion < @Model.Questions.Count - 1) {
-                currentQuestion++;
-                showQuestion(currentQuestion);
-            }
-        }
-
-        function previousQuestion() {
-            if (currentQuestion > 0) {
-                currentQuestion--;
-                showQuestion(currentQuestion);
-            }
-        }
-
-        function updateNavigationButtons() {
-            const prevButton = document.querySelector('button[onclick="previousQuestion()"]');
-            const nextButton = document.querySelector('button[onclick="nextQuestion()"]');
-
-            prevButton.disabled = currentQuestion === 0;
-            nextButton.disabled = currentQuestion === @Model.Questions.Count - 1;
-        }
-
-        function checkAllAnswered() {
-            const allAnswered = Array.from(document.querySelectorAll('.question-block'))
-                .every(block => {
-                    const questionName = `question_${block.dataset.question}`;
-                    return answers[questionName];
-                });
-
-            document.querySelector('.submit-button').disabled = !allAnswered;
-        }
-
-        document.getElementById('testForm').addEventListener('change', (e) => {
-            if (e.target.type === 'radio') {
-                answers[e.target.name] = e.target.value;
-                updateQuestionIndicators();
-                checkAllAnswered();
-            }
-        });
-
-        document.getElementById('testForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            submitTest();
-        });
-
-        function submitTest() {
-            fetch('/Education/SubmitTest', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    answers: answers,
-                    timeSpent: @Model.TimeLimit * 60 - timeLeft
-                })
-            })
-                .then(response => response.json())
-                .then(result => {
-                    showTestResults(result);
-                });
-        }
-
-        function showTestResults(result) {
-            // Показываем результаты теста
-            const testArea = document.querySelector('.test-area');
-            testArea.innerHTML = `
-                <div class="test-results">
-                    <h2>Результаты теста</h2>
-                    <div class="score">
-                        <p>Правильных ответов: ${result.correctAnswers}/${result.totalQuestions}</p>
-                        <p>Процент выполнения: ${result.percentage}%</p>
-                    </div>
-                    <div class="result-message">
-                        <p>${result.passed ? 'Поздравляем! Вы успешно прошли тест!' : 'Попробуйте пройти тест еще раз.'}</p>
-                    </div>
-                    <button onclick="location.href='/Education/Main'" class="nav-button">
-                        Вернуться к обучению
-                    </button>
-                </div>
-            `;
-        }
-
-        // Инициализация
-        showQuestion(0);
-        startTimer();
-    </script>
+      showQuestion(0);
+    });
+  </script>
 }
 
-@section Sidebar {
+    @section Sidebar {
     <div class="lessons-list">
         <div class="lesson-item">
             <span class="lesson-number">1</span>

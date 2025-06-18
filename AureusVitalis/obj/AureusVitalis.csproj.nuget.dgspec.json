@@ -49,6 +49,10 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.12.1, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -64,6 +68,14 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[9.0.4, )"
+            },
+            "SkiaSharp": {
+              "target": "Package",
+              "version": "[3.119.0, )"
+            },
+            "SkiaSharp.HarfBuzz": {
+              "target": "Package",
+              "version": "[3.119.0, )"
             }
           },
           "imports": [

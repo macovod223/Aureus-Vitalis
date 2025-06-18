@@ -24,7 +24,8 @@ namespace AureusVitalis.Services
                 Email        = model.Email,
                 Username     = model.Username,
                 PasswordHash = BC.HashPassword(model.Password),
-                Gender       = model.Gender
+                Gender       = model.Gender,
+                CreatedAt    = DateTime.UtcNow
             };
 
             _db.Users.Add(user);

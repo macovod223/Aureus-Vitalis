@@ -6,300 +6,142 @@
 }
 
 <div class="test-area">
-    <div class="test-header">
-        <h1>Тестирование: Физическая активность</h1>
-        <div class="timer" id="timer">
-            Оставшееся время: <span id="timeLeft">15:00</span>
+  <div class="test-header">
+    <h1>@Model.Title</h1>
+    <div class="timer" id="timer">
+      Оставшееся время: <span id="timeLeft">@($"{Model.TimeLimit}:00")</span>
+    </div>
+  </div>
+
+  <form id="testForm" method="post">
+    @for (int i = 0; i < Model.Questions.Count; i++)
+    {
+      var q = Model.Questions[i];
+      <div class="question-block" data-question="@i">
+        <h3>Вопрос @(i+1)</h3>
+        <p>@q.Question</p>
+        <div class="options">
+          @foreach (var opt in q.Options)
+          {
+            <label class="option">
+              <input type="@(q.CorrectAnswer.Contains(";") ? "checkbox" : "radio")"
+                     name="question_@(i+1)"
+                     value="@opt" />
+              <span>@opt</span>
+            </label>
+          }
         </div>
+      </div>
+    }
+
+    <div class="test-navigation">
+      <button type="button" id="prevBtn" class="nav-button">Назад</button>
+      <div class="question-indicators">
+        @for (int i = 0; i < Model.Questions.Count; i++)
+        {
+          <span class="indicator" data-question="@i"></span>
+        }
+      </div>
+      <button type="button" id="nextBtn" class="nav-button">Далее</button>
     </div>
 
-    <form id="testForm" method="post">
-        <div class="question-block" data-question="1">
-            <h3>Вопрос 1</h3>
-            <p>Какова минимальная рекомендуемая продолжительность умеренной физической активности в неделю для взрослого человека?</p>
-            <div class="options">
-                <label class="option">
-                    <input type="radio" name="question_1" value="a" />
-                    <span>90 минут</span>
-                </label>
-                <label class="option">
-                    <input type="radio" name="question_1" value="b" />
-                    <span>150 минут</span>
-                </label>
-                <label class="option">
-                    <input type="radio" name="question_1" value="c" />
-                    <span>200 минут</span>
-                </label>
-                <label class="option">
-                    <input type="radio" name="question_1" value="d" />
-                    <span>120 минут</span>
-                </label>
-            </div>
-        </div>
-
-        <div class="question-block" data-question="2">
-            <h3>Вопрос 2</h3>
-            <p>Какие упражнения относятся к кардио тренировкам?</p>
-            <div class="options">
-                <label class="option">
-                    <input type="checkbox" name="question_2" value="a" />
-                    <span>Бег</span>
-                </label>
-                <label class="option">
-                    <input type="checkbox" name="question_2" value="b" />
-                    <span>Отжимания</span>
-                </label>
-                <label class="option">
-                    <input type="checkbox" name="question_2" value="c" />
-                    <span>Плавание</span>
-                </label>
-                <label class="option">
-                    <input type="checkbox" name="question_2" value="d" />
-                    <span>Велосипед</span>
-                </label>
-            </div>
-        </div>
-
-        <div class="question-block" data-question="3">
-            <h3>Вопрос 3</h3>
-            <p>Как определить умеренную интенсивность тренировки?</p>
-            <div class="options">
-                <label class="option">
-                    <input type="radio" name="question_3" value="a" />
-                    <span>Можете легко петь во время тренировки</span>
-                </label>
-                <label class="option">
-                    <input type="radio" name="question_3" value="b" />
-                    <span>Можете разговаривать, но не петь</span>
-                </label>
-                <label class="option">
-                    <input type="radio" name="question_3" value="c" />
-                    <span>Не можете говорить во время тренировки</span>
-                </label>
-                <label class="option">
-                    <input type="radio" name="question_3" value="d" />
-                    <span>Чувствуете сильную усталость</span>
-                </label>
-            </div>
-        </div>
-
-        <div class="question-block" data-question="4">
-            <h3>Вопрос 4</h3>
-            <p>Какие преимущества дают силовые тренировки?</p>
-            <div class="options">
-                <label class="option">
-                    <input type="checkbox" name="question_4" value="a" />
-                    <span>Укрепление мышц</span>
-                </label>
-                <label class="option">
-                    <input type="checkbox" name="question_4" value="b" />
-                    <span>Улучшение метаболизма</span>
-                </label>
-                <label class="option">
-                    <input type="checkbox" name="question_4" value="c" />
-                    <span>Укрепление костей</span>
-                </label>
-                <label class="option">
-                    <input type="checkbox" name="question_4" value="d" />
-                    <span>Повышение гибкости</span>
-                </label>
-            </div>
-        </div>
-
-        <div class="question-block" data-question="5">
-            <h3>Вопрос 5</h3>
-            <p>Что важно сделать перед началом тренировки?</p>
-            <div class="options">
-                <label class="option">
-                    <input type="radio" name="question_5" value="a" />
-                    <span>Плотно поесть</span>
-                </label>
-                <label class="option">
-                    <input type="radio" name="question_5" value="b" />
-                    <span>Выполнить разминку</span>
-                </label>
-                <label class="option">
-                    <input type="radio" name="question_5" value="c" />
-                    <span>Выпить много воды</span>
-                </label>
-                <label class="option">
-                    <input type="radio" name="question_5" value="d" />
-                    <span>Принять холодный душ</span>
-                </label>
-            </div>
-        </div>
-
-        <div class="test-navigation">
-            <button type="button" class="nav-button" onclick="previousQuestion()">Назад</button>
-            <div class="question-indicators">
-                @for (int i = 1; i <= 5; i++)
-                {
-                    <span class="indicator" data-question="@i"></span>
-                }
-            </div>
-            <button type="button" class="nav-button" onclick="nextQuestion()">Далее</button>
-        </div>
-
-        <button type="submit" class="submit-button" disabled>Завершить тест</button>
-    </form>
+    <button type="submit" class="submit-button" disabled>Завершить тест</button>
+  </form>
 </div>
 
 @section Scripts {
-    <script>
-        let currentQuestion = 1;
-        let timeLeft = 15 * 60; // 15 минут
-        let answers = {};
+<script>
+document.addEventListener('DOMContentLoaded', ()=>{
+  const form      = document.getElementById('testForm');
+  const submitBtn = form.querySelector('.submit-button');
+  const prevBtn   = document.getElementById('prevBtn');
+  const nextBtn   = document.getElementById('nextBtn');
+  const blocks    = Array.from(document.querySelectorAll('.question-block'));
+  const inds      = Array.from(document.querySelectorAll('.indicator'));
+  const total     = blocks.length;
+  let   current   = 0;
+  let   answers   = {};
 
-        function startTimer() {
-            const timerInterval = setInterval(() => {
-                timeLeft--;
-                updateTimerDisplay();
-                
-                if (timeLeft <= 0) {
-                    clearInterval(timerInterval);
-                    submitTest();
-                }
-            }, 1000);
-        }
+  // показываем блок index и обновляем кнопки/индикаторы
+  function showQuestion(index){
+    blocks.forEach(b=>b.style.display='none');
+    blocks[index].style.display='block';
+    prevBtn.disabled = index===0;
+    nextBtn.disabled = index===total-1;
+    inds.forEach((ind,i)=>{
+      ind.classList.toggle('current', i===index);
+      ind.classList.toggle('answered', Boolean(answers[`question_${i+1}`]));
+    });
+  }
 
-        function updateTimerDisplay() {
-            const minutes = Math.floor(timeLeft / 60);
-            const seconds = timeLeft % 60;
-            document.getElementById('timeLeft').textContent = 
-                `${minutes}:${seconds.toString().padStart(2, '0')}`;
-        }
+  prevBtn.addEventListener('click', ()=>{
+    if(current>0) showQuestion(--current);
+  });
+  nextBtn.addEventListener('click', ()=>{
+    if(current<total-1) showQuestion(++current);
+  });
 
-        function showQuestion(index) {
-            document.querySelectorAll('.question-block').forEach(block => {
-                block.style.display = 'none';
-            });
-            document.querySelector(`[data-question="${index}"]`).style.display = 'block';
-            updateNavigationButtons();
-            updateQuestionIndicators();
-        }
+  // сбор ответов и разблокировка «Завершить тест»
+  form.addEventListener('change', e=>{
+    if(e.target.name.startsWith('question_')){
+      const name = e.target.name;
+      if(e.target.type==='checkbox'){
+        // несколько ответов
+        answers[name] = Array.from(form.querySelectorAll(`input[name="${name}"]:checked`))
+                              .map(i=>i.value).join(';');
+      } else {
+        answers[name] = e.target.value;
+      }
+      submitBtn.disabled = Object.keys(answers).length < total;
+      showQuestion(current);
+    }
+  });
 
-        function updateQuestionIndicators() {
-            document.querySelectorAll('.indicator').forEach((indicator, index) => {
-                const questionNumber = index + 1;
-                indicator.classList.toggle('current', questionNumber === currentQuestion);
-                indicator.classList.toggle('answered', isQuestionAnswered(questionNumber));
-            });
-        }
+  // таймер
+  (function startTimer(){
+    let timeLeft = @Model.TimeLimit * 60;
+    const ti = setInterval(()=>{
+      timeLeft--;
+      const m = Math.floor(timeLeft/60), s = timeLeft%60;
+      document.getElementById('timeLeft').textContent = `${m}:${s.toString().padStart(2,'0')}`;
+      if(timeLeft<=0){
+        clearInterval(ti);
+        form.requestSubmit();
+      }
+    },1000);
+  })();
 
-        function isQuestionAnswered(questionNumber) {
-            const inputs = document.querySelectorAll(`[name="question_${questionNumber}"]:checked`);
-            return inputs.length > 0;
-        }
+  // сабмит
+  form.addEventListener('submit', e=>{
+    e.preventDefault();
+    // готовим payload
+    const payload = Object.entries(answers).map(([k,v])=>({
+      questionKey: k,
+      selected:    v
+    }));
+    fetch('/Education/SubmitSportTest',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payload)
+    })
+    .then(r=>r.json())
+    .then(res=>{
+      document.querySelector('.test-area').innerHTML = `
+        <div class="test-results">
+          <h2>Результаты теста</h2>
+          <p>Правильных ответов: ${res.correctAnswers}/${res.totalQuestions}</p>
+          <p>Процент: ${res.percentage}%</p>
+          <p>${res.passed? 'Поздравляем!':'Не прошло, попробуйте снова.'}</p>
+          <button onclick="location.href='/Education/Main'" class="nav-button">Вернуться</button>
+        </div>`;
+    })
+    .catch(console.error);
+  });
 
-        function nextQuestion() {
-            if (currentQuestion < 5) {
-                currentQuestion++;
-                showQuestion(currentQuestion);
-            }
-        }
-
-        function previousQuestion() {
-            if (currentQuestion > 1) {
-                currentQuestion--;
-                showQuestion(currentQuestion);
-            }
-        }
-
-        function updateNavigationButtons() {
-            const prevButton = document.querySelector('button[onclick="previousQuestion()"]');
-            const nextButton = document.querySelector('button[onclick="nextQuestion()"]');
-            
-            prevButton.disabled = currentQuestion === 1;
-            nextButton.disabled = currentQuestion === 5;
-        }
-
-        function checkAllAnswered() {
-            const allAnswered = Array.from({ length: 5 }, (_, i) => i + 1)
-                .every(questionNumber => isQuestionAnswered(questionNumber));
-                
-            document.querySelector('.submit-button').disabled = !allAnswered;
-        }
-
-        document.getElementById('testForm').addEventListener('change', (e) => {
-            if (e.target.type === 'radio' || e.target.type === 'checkbox') {
-                updateQuestionIndicators();
-                checkAllAnswered();
-            }
-        });
-
-        document.getElementById('testForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            submitTest();
-        });
-
-        function submitTest() {
-            const formData = new FormData(document.getElementById('testForm'));
-            const answers = {};
-            
-            for (const [key, value] of formData.entries()) {
-                if (!answers[key]) {
-                    answers[key] = [];
-                }
-                answers[key].push(value);
-            }
-
-            // В реальном приложении здесь будет отправка на сервер
-            const correctAnswers = {
-                question_1: ['b'], // 150 минут
-                question_2: ['a', 'c', 'd'], // Бег, плавание, велосипед
-                question_3: ['b'], // Можете разговаривать, но не петь
-                question_4: ['a', 'b', 'c'], // Укрепление мышц, улучшение метаболизма, укрепление костей
-                question_5: ['b'] // Выполнить разминку
-            };
-
-            const results = calculateResults(answers, correctAnswers);
-            showTestResults(results);
-        }
-
-        function calculateResults(userAnswers, correctAnswers) {
-            let correct = 0;
-            let total = Object.keys(correctAnswers).length;
-
-            for (const [question, correctAnswer] of Object.entries(correctAnswers)) {
-                const userAnswer = userAnswers[question] || [];
-                if (JSON.stringify(userAnswer.sort()) === JSON.stringify(correctAnswer.sort())) {
-                    correct++;
-                }
-            }
-
-            return {
-                correctAnswers: correct,
-                totalQuestions: total,
-                percentage: Math.round((correct / total) * 100),
-                passed: (correct / total) >= 0.7 // Проходной балл 70%
-            };
-        }
-
-        function showTestResults(result) {
-            const testArea = document.querySelector('.test-area');
-            testArea.innerHTML = `
-                <div class="test-results">
-                    <h2>Результаты теста</h2>
-                    <div class="score">
-                        <p>Правильных ответов: ${result.correctAnswers}/${result.totalQuestions}</p>
-                        <p>Процент выполнения: ${result.percentage}%</p>
-                    </div>
-                    <div class="result-message">
-                        <p>${result.passed ? 
-                            'Поздравляем! Вы успешно прошли тест!' : 
-                            'Попробуйте пройти тест еще раз после повторения материала.'}</p>
-                    </div>
-                    <button onclick="location.href='/Education/Main'" class="nav-button">
-                        Вернуться к обучению
-                    </button>
-                </div>
-            `;
-        }
-
-        // Инициализация
-        showQuestion(1);
-        startTimer();
-    </script>
+  // старт
+  showQuestion(0);
+});
+</script>
 }
 
 @section Sidebar {

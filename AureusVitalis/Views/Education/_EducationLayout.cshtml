@@ -111,6 +111,16 @@
         updateProgress();
         checkNextLessonAvailability();
     });
+
+    function navigateLesson(offset) {
+        var items = document.querySelectorAll('.lesson-item'),
+            idx   = Array.from(items).findIndex(x => x.classList.contains('active'));
+        if (idx < 0) return;
+        var target = items[idx + offset];
+        if (target) location.href = target.dataset.url;
+    }
+    function nextLesson()     { navigateLesson(+1); }
+    function previousLesson() { navigateLesson(-1); }
 </script>
 </body>
 </html>

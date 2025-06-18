@@ -85,7 +85,8 @@
             <span class="lesson-number">2</span>
             <span class="lesson-title">Спорт</span>
         </div>
-        <div class="lesson-item @(ViewContext.RouteData.Values["action"].ToString() == "Sport" ? "active" : "")" data-url="/Education/Sport">
+<div class="lesson-item completed @(ViewContext.RouteData.Values["action"].ToString() == "Sport" ? "active" : "")"
+            data-url="@Url.Action("Sport","Education")">
             <span class="lesson-number">2.1</span>
             <span class="lesson-title">Спорт. Теория</span>
         </div>

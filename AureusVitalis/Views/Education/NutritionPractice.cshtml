@@ -5,92 +5,142 @@
     Layout = "~/Views/Education/_EducationLayout.cshtml";
 }
 
+<div id="view-loaded-flag" style="display:none">NUTRITION PRACTICE VIEW</div>
+
 <div class="practice-area">
-    <h1>@Model.Title</h1>
-    <div class="practice-task">
-        @foreach (var task in Model.Tasks)
-        {
-            <div class="task-item" data-task-id="@task.GetHashCode()">
-                <h3>@task.Question</h3>
-                <div class="task-options">
-                    @foreach (var option in task.Options)
-                    {
-                        <div class="option" onclick="selectOption(this)">
-                            @option
-                        </div>
-                    }
-                </div>
-                <div class="explanation hidden">
-                    @task.Explanation
-                </div>
-            </div>
-        }
-    </div>
-    <div class="navigation-buttons">
-        <button class="nav-button check-button" onclick="checkAnswers()">Проверить</button>
-        <button class="nav-button next-button" onclick="nextPractice()" disabled>Далее</button>
-    </div>
+  <h1>@Model.Title</h1>
+  <div class="practice-task">
+    @foreach (var task in Model.Tasks)
+    {
+      <div class="task-item" data-task-id="@task.Question">
+        <h3>@task.Question</h3>
+        <div class="task-options">
+          @foreach (var option in task.Options)
+          {
+            <div class="option">@option</div>
+          }
+        </div>
+        <div class="explanation hidden">
+          @task.Explanation
+        </div>
+      </div>
+    }
+  </div>
+
+  <div class="navigation-buttons">
+    <button id="checkBtn" type="button" class="nav-button check-button" disabled>Проверить</button>
+    <button id="nextBtn"  type="button" class="nav-button next-button" disabled>Далее</button>
+  </div>
 </div>
 
 @section Scripts {
-    <script>
-        let selectedAnswers = {};
+  <style>
+  .explanation {
+    border-left: 4px solid transparent;
+    background: #f9f9f9;
+    padding: .75rem 1rem;
+    transition: border-color .2s, background .2s;
+  }
+  .explanation.correct {
+    border-color: #28a745;      /* зелёная полоска */
+    background: #e6f4ea;        /* светло-зелёный фон */
+  }
+  .explanation.wrong {
+    border-color: #dc3545;      /* красная полоска */
+    background: #f8d7da;        /* светло-красный фон */
+  }
 
-        function selectOption(element) {
-            const taskItem = element.closest('.task-item');
-            const options = taskItem.querySelectorAll('.option');
+  .option.correct,
+  .option.incorrect {
 
-            options.forEach(opt => opt.classList.remove('selected'));
-            element.classList.add('selected');
+    background: transparent;
+    border-color: #ddd;
+  }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('NutritionPractice script loaded');
+  const totalTasks = @Model.Tasks.Count;
+  const checkBtn   = document.getElementById('checkBtn');
+  const nextBtn    = document.getElementById('nextBtn');
+  let   selectedAnswers = {};
 
-            selectedAnswers[taskItem.dataset.taskId] = element.textContent.trim();
+  document.querySelectorAll('.explanation').forEach(e =>
+    e.dataset.orig = e.textContent.trim()
+  );
 
-            checkIfAllAnswered();
+  document.querySelectorAll('.option').forEach(el => {
+    el.addEventListener('click', () => {
+      document.querySelectorAll('.option').forEach(o =>
+        o.classList.remove('selected','correct','incorrect')
+      );
+      document.querySelectorAll('.explanation').forEach(e =>
+        e.classList.add('hidden')
+      );
+      nextBtn.disabled  = true;
+
+      const taskItem = el.closest('.task-item');
+      el.classList.add('selected');
+      selectedAnswers[taskItem.dataset.taskId] = el.textContent.trim();
+
+      if (Object.keys(selectedAnswers).length === totalTasks) {
+        console.log('all answered, enabling Check');
+        checkBtn.disabled = false;
+      }
+    });
+  });
+
+  checkBtn.addEventListener('click', () => {
+    console.log('Check pressed, payload=', selectedAnswers);
+    checkBtn.disabled = true;
+    fetch('/Education/CheckPracticeAnswers', {
+      method : 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body   : JSON.stringify(selectedAnswers)
+    })
+    .then(r => r.json())
+      .then(results => {
+        let allCorrect = true;
+        document.querySelectorAll('.task-item').forEach(taskEl => {
+          const id      = taskEl.dataset.taskId;
+          const explain = taskEl.querySelector('.explanation');
+          const picked  = taskEl.querySelector('.option.selected');
+          
+          explain.classList.remove('correct','wrong');
+
+          if (results[id]) {
+            picked.classList.add('correct');
+            explain.textContent = explain.dataset.orig;  
+            explain.classList.add('correct');
+          } else {
+            picked.classList.add('incorrect');
+            explain.textContent = 'Неправильно, попробуйте еще раз';
+            explain.classList.add('wrong');
+            picked.classList.remove('selected');
+            delete selectedAnswers[id];
+            allCorrect = false;
+          }
+          explain.classList.remove('hidden');
+        });
+
+        if (allCorrect) {
+          nextBtn.disabled = false;
+        } else {
+          checkBtn.disabled = !(Object.keys(selectedAnswers).length === totalTasks);
         }
+    })
+    .catch(err => {
+      console.error('CheckPracticeAnswers failed', err);
+      checkBtn.disabled = false;
+    });
+  });
 
-        function checkIfAllAnswered() {
-            const tasks = document.querySelectorAll('.task-item');
-            const checkButton = document.querySelector('.check-button');
-
-            const allAnswered = Array.from(tasks).every(task =>
-                selectedAnswers[task.dataset.taskId]);
-
-            checkButton.disabled = !allAnswered;
-        }
-
-        function checkAnswers() {
-            // Здесь будет AJAX запрос для проверки ответов
-            fetch('/Education/CheckPracticeAnswers', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(selectedAnswers)
-            })
-                .then(response => response.json())
-                .then(data => {
-                    showResults(data);
-                    document.querySelector('.next-button').disabled = false;
-                });
-        }
-
-        function showResults(results) {
-            const tasks = document.querySelectorAll('.task-item');
-            tasks.forEach(task => {
-                const taskId = task.dataset.taskId;
-                const explanation = task.querySelector('.explanation');
-                const selectedOption = task.querySelector('.option.selected');
-
-                if (results[taskId]) {
-                    selectedOption.classList.add('correct');
-                } else {
-                    selectedOption.classList.add('incorrect');
-                }
-
-                explanation.classList.remove('hidden');
-            });
-        }
-    </script>
+  nextBtn.addEventListener('click', () => {
+    console.log('Next pressed, navigating');
+    window.location.href = '/Education/NutritionTest';
+  });
+});
+</script>
 }
 
 @section Sidebar {

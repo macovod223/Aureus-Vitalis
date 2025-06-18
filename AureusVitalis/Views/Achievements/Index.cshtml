@@ -1,84 +1,108 @@
 @model List<AureusVitalis.Models.AchievementModel>
+
 @{
     ViewData["Title"] = "Достижения";
-    Layout = "_Layout";
-    var hasFinal = Model.Any(a => a.Title == "Победитель марафона" && a.IsUnlocked);
+    Layout            = "_Layout";
+
+    var hasFinal = Model.Any(a =>
+        a.Title == "Победитель марафона" && a.IsUnlocked);
 }
 
-<!-- Топбар с кнопками -->
 <div class="achievements-topbar">
     <a href="/Education/Main" class="education-back-btn">
-        <img src="/images/education.png" alt="Education" style="width:22px; vertical-align:middle; margin-right:8px;" />
-        К обучению
+        <img src="/images/education.png"
+             alt="Education"
+             style="width:22px;vertical-align:middle;margin-right:8px;" />
+        К&nbsp;обучению
     </a>
+
     <a href="/DailyHelper/Selection" class="daily-helper-btn">
-        Daily helper
+        Daily&nbsp;helper
     </a>
 </div>
 
 <div class="achievements-main-container">
     <h1 class="achievements-title">Достижения</h1>
+
     <div class="achievements-grid">
-        @foreach (var achievement in Model)
+        @foreach (var a in Model)
         {
-            <div class="achievement-card @(achievement.IsUnlocked ? "unlocked" : "locked")">
+            <div class="achievement-card @(a.IsUnlocked ? "unlocked" : "locked")">
                 <div class="trophy-icon-bg">
-                    <img src="@achievement.Icon" alt="Трофей" class="trophy-icon" />
+                    <img src="@a.Icon" class="trophy-icon" alt="Трофей" />
                 </div>
                 <div>
-                    <div class="achievement-title">@achievement.Title</div>
-                    <div class="achievement-desc">@achievement.Description</div>
+                    <div class="achievement-title">@a.Title</div>
+                    <div class="achievement-desc">@a.Description</div>
                 </div>
             </div>
         }
     </div>
 
     <div class="certificate-block">
-        <button id="certificateBtn" class="certificate-btn@(hasFinal ? "" : " disabled")" type="button">
-            Получить сертификат
-        </button>
+        @if (hasFinal)
+        {
+            <form asp-controller="Certificate"
+                  asp-action="Download"
+                  method="post"
+                  class="d-inline">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="certificate-btn">
+                    Скачать&nbsp;сертификат
+                </button>
+            </form>
+
+            <button id="emailBtn" class="certificate-btn">
+                На&nbsp;e-mail
+            </button>
+        }
+        else
+        {
+            <button class="certificate-btn disabled" disabled>
+                Пройдите&nbsp;финальный&nbsp;экзамен
+            </button>
+        }
     </div>
 </div>
 
-<!-- Модальное окно сертификата -->
-<div id="certificateModal" class="modal-bg" style="display:none;">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeCertificateModal()">&times;</span>
-        <h2>Ваш сертификат</h2>
-        <img id="certificateImage" src="/images/trophy.png" alt="Сертификат" style="max-width:100%; border-radius:12px; box-shadow:0 2px 12px rgba(0,0,0,0.12); margin-top:20px;" />
-    </div>
-</div>
-
+@section Scripts
+{
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var btn = document.getElementById('certificateBtn');
-        var hasFinal = @hasFinal.ToString().ToLower();
+document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('emailBtn');
+    if (!btn) return;
 
-        btn.addEventListener('click', function() {
-            if (hasFinal) {
-                showCertificateModal();
-            } else {
-                showCertAlert();
+    const token = document.querySelector('input[name="__RequestVerificationToken"]')?.value ?? '';
+
+    btn.addEventListener('click', async () => {
+        if (btn.disabled) return;
+
+        const origText = btn.textContent;
+        btn.disabled   = true;
+        btn.textContent = 'Отправляем…';
+
+        const resp = await fetch('/Certificate/Send', {
+            method : 'POST',
+            headers: {
+                'RequestVerificationToken': token
             }
         });
-    });
 
-    function showCertificateModal() {
-        document.getElementById('certificateModal').style.display = 'flex';
-    }
-    function closeCertificateModal() {
-        document.getElementById('certificateModal').style.display = 'none';
-    }
-    function showCertAlert() {
-        alert('Сначала пройдите финальный экзамен, чтобы получить сертификат!');
-    }
-    window.onclick = function(event) {
-        var modal = document.getElementById('certificateModal');
-        if (event.target === modal) {
-            closeCertificateModal();
+        if (resp.ok) {
+            btn.textContent = 'Отправлено!';
+            setTimeout(() => {
+                btn.textContent = origText;
+                btn.disabled    = false;
+            }, 4000);
+        } else {
+            alert('Не удалось отправить письмо');
+            btn.textContent = origText;
+            btn.disabled    = false;
         }
-    }
+    });
+});
 </script>
+}
 
 <style>
     /* Скрыть Daily helper в шапке */
@@ -133,7 +157,7 @@
     /* Кнопка "Daily helper" */
     .daily-helper-btn {
         display: inline-block;
-        background: #fff;
+        background: #ffffff;
         color: #388e3c;
         border-radius: 25px;
         padding: 10px 28px;
@@ -290,4 +314,8 @@
     .close-modal:hover {
         color: #256d27;
     }
+
+    nav.navbar { display: none !important; }
+
+    .navbar-nav { display: none !important; }
 </style>

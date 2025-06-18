@@ -2,6 +2,8 @@
 @model ExamModel
 @{
     ViewData["Title"] = "Final Exam";
+    // передаём в JS общее число вопросов
+    var totalQuestions = Model.Questions.Count;
 }
 
 <div class="exam-area">
@@ -12,166 +14,53 @@
         </div>
     </div>
 
-    <form id="examForm" method="post">
-        <div class="exam-section nutrition">
-            <h2>Раздел 1: Питание</h2>
-
-            <div class="question-block" data-question="1">
-                <h3>Вопрос 1</h3>
-                <p>Какие из следующих продуктов являются хорошими источниками белка?</p>
+    <form id="examForm">
+        @for (int i = 0; i < Model.Questions.Count; i++)
+        {
+            var q = Model.Questions[i];
+            <div class="question-block" data-question="@(i+1)" style="display: none;">
+                <h3>Вопрос @(i+1)</h3>
+                <p>@q.Question</p>
                 <div class="options">
-                    <label class="option">
-                        <input type="checkbox" name="question_1" value="a" />
-                        <span>Куриная грудка</span>
-                    </label>
-                    <label class="option">
-                        <input type="checkbox" name="question_1" value="b" />
-                        <span>Чечевица</span>
-                    </label>
-                    <label class="option">
-                        <input type="checkbox" name="question_1" value="c" />
-                        <span>Яйца</span>
-                    </label>
-                    <label class="option">
-                        <input type="checkbox" name="question_1" value="d" />
-                        <span>Белый хлеб</span>
-                    </label>
+                    @if (q.CorrectAnswer.Contains(";"))
+                    {
+                        @* Множественный выбор *@
+                        foreach (var opt in q.Options)
+                        {
+                            <label class="option">
+                                <input type="checkbox"
+                                       name="question_@(i+1)"
+                                       value="@opt" />
+                                <span>@opt</span>
+                            </label>
+                        }
+                    }
+                    else
+                    {
+                        @* Одиночный выбор *@
+                        foreach (var opt in q.Options)
+                        {
+                            <label class="option">
+                                <input type="radio"
+                                       name="question_@(i+1)"
+                                       value="@opt" />
+                                <span>@opt</span>
+                            </label>
+                        }
+                    }
                 </div>
             </div>
-
-            <div class="question-block" data-question="2">
-                <h3>Вопрос 2</h3>
-                <p>Сколько порций овощей и фруктов рекомендуется употреблять ежедневно?</p>
-                <div class="options">
-                    <label class="option">
-                        <input type="radio" name="question_2" value="a" />
-                        <span>2-3 порции</span>
-                    </label>
-                    <label class="option">
-                        <input type="radio" name="question_2" value="b" />
-                        <span>5-7 порций</span>
-                    </label>
-                    <label class="option">
-                        <input type="radio" name="question_2" value="c" />
-                        <span>8-10 порций</span>
-                    </label>
-                    <label class="option">
-                        <input type="radio" name="question_2" value="d" />
-                        <span>3-4 порции</span>
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <div class="exam-section sport">
-            <h2>Раздел 2: Физическая активность</h2>
-
-            <div class="question-block" data-question="3">
-                <h3>Вопрос 3</h3>
-                <p>Выберите правильную последовательность этапов тренировки:</p>
-                <div class="options sequence-options">
-                    <div class="sequence-item" draggable="true" data-value="a">
-                        <span class="sequence-number">1</span>
-                        <span>Разминка</span>
-                    </div>
-                    <div class="sequence-item" draggable="true" data-value="b">
-                        <span class="sequence-number">2</span>
-                        <span>Основная часть</span>
-                    </div>
-                    <div class="sequence-item" draggable="true" data-value="c">
-                        <span class="sequence-number">3</span>
-                        <span>Заминка</span>
-                    </div>
-                    <div class="sequence-item" draggable="true" data-value="d">
-                        <span class="sequence-number">4</span>
-                        <span>Растяжка</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="question-block" data-question="4">
-                <h3>Вопрос 4</h3>
-                <p>Какие утверждения о кардио тренировках верны?</p>
-                <div class="options">
-                    <label class="option">
-                        <input type="checkbox" name="question_4" value="a" />
-                        <span>Улучшают работу сердечно-сосудистой системы</span>
-                    </label>
-                    <label class="option">
-                        <input type="checkbox" name="question_4" value="b" />
-                        <span>Помогают сжигать калории</span>
-                    </label>
-                    <label class="option">
-                        <input type="checkbox" name="question_4" value="c" />
-                        <span>Увеличивают мышечную массу</span>
-                    </label>
-                    <label class="option">
-                        <input type="checkbox" name="question_4" value="d" />
-                        <span>Повышают выносливость</span>
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <div class="exam-section sleep">
-            <h2>Раздел 3: Сон</h2>
-
-            <div class="question-block" data-question="5">
-                <h3>Вопрос 5</h3>
-                <p>Какие факторы негативно влияют на качество сна?</p>
-                <div class="options">
-                    <label class="option">
-                        <input type="checkbox" name="question_5" value="a" />
-                        <span>Использование смартфона перед сном</span>
-                    </label>
-                    <label class="option">
-                        <input type="checkbox" name="question_5" value="b" />
-                        <span>Кофеин во второй половине дня</span>
-                    </label>
-                    <label class="option">
-                        <input type="checkbox" name="question_5" value="c" />
-                        <span>Регулярный режим сна</span>
-                    </label>
-                    <label class="option">
-                        <input type="checkbox" name="question_5" value="d" />
-                        <span>Тяжелая пища перед сном</span>
-                    </label>
-                </div>
-            </div>
-
-            <div class="question-block" data-question="6">
-                <h3>Вопрос 6</h3>
-                <p>Какова оптимальная продолжительность сна для взрослого человека?</p>
-                <div class="options">
-                    <label class="option">
-                        <input type="radio" name="question_6" value="a" />
-                        <span>5-6 часов</span>
-                    </label>
-                    <label class="option">
-                        <input type="radio" name="question_6" value="b" />
-                        <span>7-9 часов</span>
-                    </label>
-                    <label class="option">
-                        <input type="radio" name="question_6" value="c" />
-                        <span>10-12 часов</span>
-                    </label>
-                    <label class="option">
-                        <input type="radio" name="question_6" value="d" />
-                        <span>4-5 часов</span>
-                    </label>
-                </div>
-            </div>
-        </div>
+        }
 
         <div class="exam-navigation">
-            <button type="button" class="nav-button" onclick="previousQuestion()">Назад</button>
+            <button type="button" class="nav-button" id="prevBtn">Назад</button>
             <div class="question-indicators">
-                @for (int i = 1; i <= 6; i++)
+                @for (int i = 1; i <= totalQuestions; i++)
                 {
                     <span class="indicator" data-question="@i" onclick="goToQuestion(@i)"></span>
                 }
             </div>
-            <button type="button" class="nav-button" onclick="nextQuestion()">Далее</button>
+            <button type="button" class="nav-button" id="nextBtn">Далее</button>
         </div>
 
         <button type="submit" class="submit-button" disabled>Завершить экзамен</button>
@@ -179,228 +68,132 @@
 </div>
 
 @section Scripts {
-    <script>
+<script>
+    (() => {
+        const totalQ = @totalQuestions;
         let currentQuestion = 1;
-        let timeLeft = 30 * 60; // 30 минут
-        let answers = {};
+        let timeLeft = 30 * 60; // сек
 
+        // === Timer ===
         function startTimer() {
-            const timerInterval = setInterval(() => {
-                timeLeft--;
-                updateTimerDisplay();
-
-                if (timeLeft <= 0) {
-                    clearInterval(timerInterval);
+            const interval = setInterval(() => {
+                if (--timeLeft <= 0) {
+                    clearInterval(interval);
                     submitExam();
                 }
+                const m = Math.floor(timeLeft / 60),
+                      s = timeLeft % 60;
+                document.getElementById('timeLeft').textContent =
+                    `${m}:${s.toString().padStart(2,'0')}`;
             }, 1000);
         }
 
-        function updateTimerDisplay() {
-            const minutes = Math.floor(timeLeft / 60);
-            const seconds = timeLeft % 60;
-            document.getElementById('timeLeft').textContent =
-                `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        // === Navigation ===
+        function showQuestion(idx) {
+            document.querySelectorAll('.question-block')
+                    .forEach(b => b.style.display = 'none');
+            document.querySelector(`.question-block[data-question="${idx}"]`)
+                    .style.display = 'block';
+            updateNavButtons();
+            updateIndicators();
         }
+        window.goToQuestion = idx => {
+            currentQuestion = idx;
+            showQuestion(idx);
+        };
 
-        function showQuestion(index) {
-            document.querySelectorAll('.question-block').forEach(block => {
-                block.style.display = 'none';
-            });
-            document.querySelector(`[data-question="${index}"]`).style.display = 'block';
-            updateNavigationButtons();
-            updateQuestionIndicators();
-        }
-
-        function goToQuestion(index) {
-            currentQuestion = index;
-            showQuestion(index);
-        }
-
-        function updateQuestionIndicators() {
-            document.querySelectorAll('.indicator').forEach((indicator, index) => {
-                const questionNumber = index + 1;
-                indicator.classList.toggle('current', questionNumber === currentQuestion);
-                indicator.classList.toggle('answered', isQuestionAnswered(questionNumber));
-            });
-        }
-
-        function isQuestionAnswered(questionNumber) {
-            const inputs = document.querySelectorAll(`[name="question_${questionNumber}"]:checked`);
-            return inputs.length > 0;
-        }
-
-        function nextQuestion() {
-            if (currentQuestion < 6) {
-                currentQuestion++;
-                showQuestion(currentQuestion);
-            }
-        }
-
-        function previousQuestion() {
+        document.getElementById('prevBtn').onclick = () => {
             if (currentQuestion > 1) {
                 currentQuestion--;
                 showQuestion(currentQuestion);
             }
+        };
+        document.getElementById('nextBtn').onclick = () => {
+            if (currentQuestion < totalQ) {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+            }
+        };
+
+        function updateNavButtons() {
+            document.getElementById('prevBtn').disabled = currentQuestion === 1;
+            document.getElementById('nextBtn').disabled = currentQuestion === totalQ;
         }
 
-        function updateNavigationButtons() {
-            const prevButton = document.querySelector('button[onclick="previousQuestion()"]');
-            const nextButton = document.querySelector('button[onclick="nextQuestion()"]');
-
-            prevButton.disabled = currentQuestion === 1;
-            nextButton.disabled = currentQuestion === 6;
+        function isAnswered(qNum) {
+            return document.querySelectorAll(
+                `[name="question_${qNum}"]:checked`
+            ).length > 0;
         }
 
-        function checkAllAnswered() {
-            const allAnswered = Array.from({ length: 6 }, (_, i) => i + 1)
-                .every(questionNumber => isQuestionAnswered(questionNumber));
-
-            document.querySelector('.submit-button').disabled = !allAnswered;
+        function updateIndicators() {
+            document.querySelectorAll('.indicator').forEach((el,ix) => {
+                const qn = ix+1;
+                el.classList.toggle('current', qn===currentQuestion);
+                el.classList.toggle('answered', isAnswered(qn));
+            });
         }
 
-        // Инициализация drag-and-drop для последовательности
-        const sequenceItems = document.querySelectorAll('.sequence-item');
-        sequenceItems.forEach(item => {
-            item.addEventListener('dragstart', handleDragStart);
-            item.addEventListener('dragover', handleDragOver);
-            item.addEventListener('drop', handleDrop);
+        // === Enable submit when all answered ===
+        document.getElementById('examForm').addEventListener('change', () => {
+            const all = Array.from({length: totalQ},(_,i)=>i+1)
+                             .every(isAnswered);
+            document.querySelector('.submit-button').disabled = !all;
+            updateIndicators();
         });
 
-        function handleDragStart(e) {
-            e.dataTransfer.setData('text/plain', e.target.dataset.value);
-            e.target.classList.add('dragging');
-        }
-
-        function handleDragOver(e) {
-            e.preventDefault();
-        }
-
-        function handleDrop(e) {
-            e.preventDefault();
-            const draggedValue = e.dataTransfer.getData('text/plain');
-            const dropTarget = e.target.closest('.sequence-item');
-            const draggedItem = document.querySelector(`[data-value="${draggedValue}"]`);
-
-            if (draggedItem && dropTarget) {
-                const tempValue = dropTarget.dataset.value;
-                const tempHtml = dropTarget.innerHTML;
-
-                dropTarget.dataset.value = draggedValue;
-                dropTarget.innerHTML = draggedItem.innerHTML;
-
-                draggedItem.dataset.value = tempValue;
-                draggedItem.innerHTML = tempHtml;
-            }
-
-            document.querySelector('.dragging')?.classList.remove('dragging');
-            checkSequenceAnswer();
-        }
-
-        function checkSequenceAnswer() {
-            const sequence = Array.from(document.querySelectorAll('.sequence-item'))
-                .map(item => item.dataset.value);
-            answers['question_3'] = sequence;
-            updateQuestionIndicators();
-            checkAllAnswered();
-        }
-
-        document.getElementById('examForm').addEventListener('change', (e) => {
-            if (e.target.type === 'radio' || e.target.type === 'checkbox') {
-                updateQuestionIndicators();
-                checkAllAnswered();
-            }
-        });
-
-        document.getElementById('examForm').addEventListener('submit', (e) => {
+        // === Submit via AJAX ===
+        document.getElementById('examForm').addEventListener('submit', e => {
             e.preventDefault();
             submitExam();
         });
-
         function submitExam() {
-            const formData = new FormData(document.getElementById('examForm'));
-            const answers = {};
-
-            for (const [key, value] of formData.entries()) {
-                if (!answers[key]) {
-                    answers[key] = [];
-                }
-                answers[key].push(value);
-            }
-
-            // Добавляем последовательность
-            answers['question_3'] = Array.from(document.querySelectorAll('.sequence-item'))
-                .map(item => item.dataset.value);
-
-            // В реальном приложении здесь будет отправка на сервер
-            const correctAnswers = {
-                question_1: ['a', 'b', 'c'], // Источники белка
-                question_2: ['b'], // 5-7 порций
-                question_3: ['a', 'b', 'c', 'd'], // Последовательность тренировки
-                question_4: ['a', 'b', 'd'], // Кардио
-                question_5: ['a', 'b', 'd'], // Факторы сна
-                question_6: ['b'] // 7-9 часов
-            };
-
-            const results = calculateResults(answers, correctAnswers);
-            showExamResults(results);
+            const fd = new FormData(document.getElementById('examForm'));
+            const payload = {};
+            fd.forEach((v,k) => {
+                if (!payload[k]) payload[k]=[];
+                payload[k].push(v);
+            });
+            // привести массивы к строке через ";"
+            const answers = Object.entries(payload).map(([k,arr]) => ({
+                questionKey: k,
+                selected:    arr.join(';')
+            }));
+            fetch('/Education/SubmitFinalExam', {
+                method: 'POST',
+                headers:{ 'Content-Type':'application/json' },
+                body: JSON.stringify(answers)
+            })
+            .then(r=>r.json())
+            .then(res=> renderResult(res));
         }
 
-        function calculateResults(userAnswers, correctAnswers) {
-            let correct = 0;
-            let total = Object.keys(correctAnswers).length;
-
-            for (const [question, correctAnswer] of Object.entries(correctAnswers)) {
-                const userAnswer = userAnswers[question] || [];
-                if (JSON.stringify(userAnswer.sort()) === JSON.stringify(correctAnswer.sort())) {
-                    correct++;
-                }
-            }
-
-            return {
-                correctAnswers: correct,
-                totalQuestions: total,
-                percentage: Math.round((correct / total) * 100),
-                passed: (correct / total) >= 0.8 // Проходной балл 80%
-            };
-        }
-
-        function showExamResults(result) {
-            const examArea = document.querySelector('.exam-area');
-            examArea.innerHTML = `
+        function renderResult(res) {
+            document.querySelector('.exam-area').innerHTML = `
                 <div class="exam-results">
-                    <h2>Результаты финального экзамена</h2>
-                    <div class="score">
-                        <p>Правильных ответов: ${result.correctAnswers}/${result.totalQuestions}</p>
-                        <p>Процент выполнения: ${result.percentage}%</p>
-                    </div>
-                    <div class="result-message">
-                        ${result.passed ? `
-                            <div class="success-message">
-                                <h3>Поздравляем!</h3>
-                                <p>Вы успешно прошли финальный экзамен!</p>
-                                <p>Теперь вы можете получить сертификат о прохождении курса.</p>
-                                <button onclick="location.href='/Education/Certificate'" class="certificate-button">
-                                    Получить сертификат
-                                </button>
-                            </div>
-                        ` : `
-                            <div class="failure-message">
-                                <h3>Попробуйте еще раз</h3>
-                                <p>Для получения сертификата необходимо набрать минимум 80%.</p>
-                                <p>Повторите материал и попробуйте снова.</p>
-                                <button onclick="location.href='/Education/Main'" class="nav-button">
-                                    Вернуться к обучению
-                                </button>
-                            </div>
-                        `}
-                    </div>
-                </div>
-            `;
+                  <h2>Результаты финального экзамена</h2>
+                  <p>Правильно: ${res.correctAnswers}/${res.totalQuestions}</p>
+                  <p>Процент: ${res.percentage}%</p>
+                  <p>${res.passed
+                      ? 'Поздравляем! Теперь вы можете получить сертификат.'
+                      : 'Не пройдено. Попробуйте ещё раз.'}
+                  </p>
+                  <button onclick="location.href='/Education/Main'" class="nav-button">
+                    Вернуться к обучению
+                  </button>
+                </div>`;
         }
 
-        // Инициализация
+        // === Initialization ===
         showQuestion(1);
         startTimer();
-    </script>
+    })();
+</script>
 }
+
+<style>
+  /* Перекрасим Daily helper */ 
+  header .daily-helper-link span {
+    color: var(--brand-color);
+  }
+</style>

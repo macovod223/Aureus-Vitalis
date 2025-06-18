@@ -4,49 +4,373 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\AureusVitalis.w5uiniih1j.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-zDe3bihrmAu4Pl8QyE293n8BumC52\u002BITPGaY9Q41lf8="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1082"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022zDe3bihrmAu4Pl8QyE293n8BumC52\u002BITPGaY9Q41lf8=\u0022"},{"Name":"Last-Modified","Value":"Tue, 03 Jun 2025 05:26:26 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1082"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022zDe3bihrmAu4Pl8QyE293n8BumC52\u002BITPGaY9Q41lf8=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 09:38:47 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/AureusVitalis/AureusVitalis.w5uiniih1j.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\AureusVitalis.w5uiniih1j.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"w5uiniih1j"},{"Name":"integrity","Value":"sha256-zDe3bihrmAu4Pl8QyE293n8BumC52\u002BITPGaY9Q41lf8="},{"Name":"label","Value":"_content/AureusVitalis/AureusVitalis.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1082"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022zDe3bihrmAu4Pl8QyE293n8BumC52\u002BITPGaY9Q41lf8=\u0022"},{"Name":"Last-Modified","Value":"Tue, 03 Jun 2025 05:26:26 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1082"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022zDe3bihrmAu4Pl8QyE293n8BumC52\u002BITPGaY9Q41lf8=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 09:38:47 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250617233917.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250617233917.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-\u002B3wkrVz5XXt90H5TMUiROIYWydPpc9B2rFHdlniVsMY="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"840995"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022\u002B3wkrVz5XXt90H5TMUiROIYWydPpc9B2rFHdlniVsMY=\u0022"},{"Name":"Last-Modified","Value":"Tue, 17 Jun 2025 23:39:18 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250617233917.rguj8xnzh3.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250617233917.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"rguj8xnzh3"},{"Name":"integrity","Value":"sha256-\u002B3wkrVz5XXt90H5TMUiROIYWydPpc9B2rFHdlniVsMY="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_1_20250617233917.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"840995"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022\u002B3wkrVz5XXt90H5TMUiROIYWydPpc9B2rFHdlniVsMY=\u0022"},{"Name":"Last-Modified","Value":"Tue, 17 Jun 2025 23:39:18 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618003836.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618003836.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:38:36 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618003836.r337ayt1p5.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618003836.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"r337ayt1p5"},{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_1_20250618003836.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:38:36 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618004530.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618004530.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:45:30 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618004530.r337ayt1p5.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618004530.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"r337ayt1p5"},{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_1_20250618004530.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:45:30 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618004536.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618004536.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:45:37 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618004536.r337ayt1p5.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618004536.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"r337ayt1p5"},{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_1_20250618004536.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:45:37 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618004631.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618004631.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:46:31 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618004631.r337ayt1p5.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618004631.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"r337ayt1p5"},{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_1_20250618004631.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:46:31 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618004641.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618004641.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:46:41 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618004641.r337ayt1p5.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618004641.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"r337ayt1p5"},{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_1_20250618004641.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:46:41 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618004645.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618004645.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:46:45 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618004645.r337ayt1p5.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618004645.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"r337ayt1p5"},{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_1_20250618004645.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:46:45 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618004656.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618004656.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:46:56 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618004656.r337ayt1p5.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618004656.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"r337ayt1p5"},{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_1_20250618004656.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:46:56 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618004715.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618004715.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:47:15 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618004715.r337ayt1p5.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618004715.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"r337ayt1p5"},{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_1_20250618004715.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:47:15 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618004732.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618004732.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:47:32 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618004732.r337ayt1p5.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618004732.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"r337ayt1p5"},{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_1_20250618004732.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:47:32 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618004756.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618004756.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:47:56 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618004756.r337ayt1p5.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618004756.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"r337ayt1p5"},{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_1_20250618004756.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:47:56 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618005046.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618005046.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:50:46 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618005046.r337ayt1p5.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618005046.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"r337ayt1p5"},{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_1_20250618005046.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:50:46 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618005052.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618005052.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:50:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618005052.r337ayt1p5.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618005052.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"r337ayt1p5"},{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_1_20250618005052.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:50:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618005057.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618005057.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:50:57 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618005057.r337ayt1p5.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618005057.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"r337ayt1p5"},{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_1_20250618005057.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:50:57 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618005101.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618005101.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:51:01 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618005101.r337ayt1p5.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618005101.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"r337ayt1p5"},{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_1_20250618005101.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:51:01 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618005106.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618005106.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:51:06 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618005106.r337ayt1p5.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618005106.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"r337ayt1p5"},{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_1_20250618005106.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:51:06 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618005111.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618005111.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:51:11 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618005111.r337ayt1p5.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618005111.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"r337ayt1p5"},{"Name":"integrity","Value":"sha256-dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_1_20250618005111.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"840999"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022dy2PFdO69LkQ6a13vJn/es/qhsSZBBBHZiZG\u002B/\u002BBoaI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:51:11 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618005155.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618005155.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-jofzZLBmRPDMpQYxdZVAR2NDetDdhlukKjFQL78duKw="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"841075"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022jofzZLBmRPDMpQYxdZVAR2NDetDdhlukKjFQL78duKw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:51:55 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618005155.y4skt8hd0y.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618005155.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"y4skt8hd0y"},{"Name":"integrity","Value":"sha256-jofzZLBmRPDMpQYxdZVAR2NDetDdhlukKjFQL78duKw="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_1_20250618005155.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"841075"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022jofzZLBmRPDMpQYxdZVAR2NDetDdhlukKjFQL78duKw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:51:55 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618005207.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618005207.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-jofzZLBmRPDMpQYxdZVAR2NDetDdhlukKjFQL78duKw="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"841075"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022jofzZLBmRPDMpQYxdZVAR2NDetDdhlukKjFQL78duKw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:52:07 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618005207.y4skt8hd0y.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618005207.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"y4skt8hd0y"},{"Name":"integrity","Value":"sha256-jofzZLBmRPDMpQYxdZVAR2NDetDdhlukKjFQL78duKw="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_1_20250618005207.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"841075"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022jofzZLBmRPDMpQYxdZVAR2NDetDdhlukKjFQL78duKw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:52:07 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618005212.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618005212.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-jofzZLBmRPDMpQYxdZVAR2NDetDdhlukKjFQL78duKw="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"841075"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022jofzZLBmRPDMpQYxdZVAR2NDetDdhlukKjFQL78duKw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:52:13 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618005212.y4skt8hd0y.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618005212.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"y4skt8hd0y"},{"Name":"integrity","Value":"sha256-jofzZLBmRPDMpQYxdZVAR2NDetDdhlukKjFQL78duKw="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_1_20250618005212.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"841075"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022jofzZLBmRPDMpQYxdZVAR2NDetDdhlukKjFQL78duKw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:52:13 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618005231.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618005231.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-jofzZLBmRPDMpQYxdZVAR2NDetDdhlukKjFQL78duKw="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"841075"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022jofzZLBmRPDMpQYxdZVAR2NDetDdhlukKjFQL78duKw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:52:31 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618005231.y4skt8hd0y.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618005231.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"y4skt8hd0y"},{"Name":"integrity","Value":"sha256-jofzZLBmRPDMpQYxdZVAR2NDetDdhlukKjFQL78duKw="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_1_20250618005231.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"841075"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022jofzZLBmRPDMpQYxdZVAR2NDetDdhlukKjFQL78duKw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:52:31 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618005701.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618005701.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-jofzZLBmRPDMpQYxdZVAR2NDetDdhlukKjFQL78duKw="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"841075"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022jofzZLBmRPDMpQYxdZVAR2NDetDdhlukKjFQL78duKw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:57:01 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_1_20250618005701.y4skt8hd0y.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_1_20250618005701.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"y4skt8hd0y"},{"Name":"integrity","Value":"sha256-jofzZLBmRPDMpQYxdZVAR2NDetDdhlukKjFQL78duKw="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_1_20250618005701.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"841075"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022jofzZLBmRPDMpQYxdZVAR2NDetDdhlukKjFQL78duKw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:57:01 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_4_20250618001053.2daewn87tp.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_4_20250618001053.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"2daewn87tp"},{"Name":"integrity","Value":"sha256-9kfgoliRDO04XlBhbasSbuhhlQ4DlU9KFbrPD/2U7Zw="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_4_20250618001053.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"841034"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u00229kfgoliRDO04XlBhbasSbuhhlQ4DlU9KFbrPD/2U7Zw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:10:53 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_4_20250618001053.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_4_20250618001053.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-9kfgoliRDO04XlBhbasSbuhhlQ4DlU9KFbrPD/2U7Zw="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"841034"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u00229kfgoliRDO04XlBhbasSbuhhlQ4DlU9KFbrPD/2U7Zw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:10:53 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_4_20250618003641.2daewn87tp.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_4_20250618003641.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"2daewn87tp"},{"Name":"integrity","Value":"sha256-9kfgoliRDO04XlBhbasSbuhhlQ4DlU9KFbrPD/2U7Zw="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_4_20250618003641.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"841034"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u00229kfgoliRDO04XlBhbasSbuhhlQ4DlU9KFbrPD/2U7Zw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:36:42 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_4_20250618003641.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_4_20250618003641.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-9kfgoliRDO04XlBhbasSbuhhlQ4DlU9KFbrPD/2U7Zw="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"841034"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u00229kfgoliRDO04XlBhbasSbuhhlQ4DlU9KFbrPD/2U7Zw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:36:42 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_4_20250618003654.2daewn87tp.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_4_20250618003654.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"2daewn87tp"},{"Name":"integrity","Value":"sha256-9kfgoliRDO04XlBhbasSbuhhlQ4DlU9KFbrPD/2U7Zw="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_4_20250618003654.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"841034"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u00229kfgoliRDO04XlBhbasSbuhhlQ4DlU9KFbrPD/2U7Zw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:36:54 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_4_20250618003654.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_4_20250618003654.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-9kfgoliRDO04XlBhbasSbuhhlQ4DlU9KFbrPD/2U7Zw="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"841034"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u00229kfgoliRDO04XlBhbasSbuhhlQ4DlU9KFbrPD/2U7Zw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:36:54 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_4_20250618005747.2daewn87tp.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_4_20250618005747.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"2daewn87tp"},{"Name":"integrity","Value":"sha256-9kfgoliRDO04XlBhbasSbuhhlQ4DlU9KFbrPD/2U7Zw="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_4_20250618005747.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"841034"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u00229kfgoliRDO04XlBhbasSbuhhlQ4DlU9KFbrPD/2U7Zw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:57:47 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_4_20250618005747.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_4_20250618005747.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-9kfgoliRDO04XlBhbasSbuhhlQ4DlU9KFbrPD/2U7Zw="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"841034"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u00229kfgoliRDO04XlBhbasSbuhhlQ4DlU9KFbrPD/2U7Zw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:57:47 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_4_20250618005759.2daewn87tp.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_4_20250618005759.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"2daewn87tp"},{"Name":"integrity","Value":"sha256-9kfgoliRDO04XlBhbasSbuhhlQ4DlU9KFbrPD/2U7Zw="},{"Name":"label","Value":"_content/AureusVitalis/certificates/certificate_4_20250618005759.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"841034"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u00229kfgoliRDO04XlBhbasSbuhhlQ4DlU9KFbrPD/2U7Zw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:57:59 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/certificates/certificate_4_20250618005759.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\certificates\certificate_4_20250618005759.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-9kfgoliRDO04XlBhbasSbuhhlQ4DlU9KFbrPD/2U7Zw="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"841034"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u00229kfgoliRDO04XlBhbasSbuhhlQ4DlU9KFbrPD/2U7Zw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 00:57:59 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/AureusVitalis/css/auth.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\auth.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-36l9mBO17HIMK\u002BEJVnyTx35pPFLe/bm4wIArB0Iux00="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4429"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u002236l9mBO17HIMK\u002BEJVnyTx35pPFLe/bm4wIArB0Iux00=\u0022"},{"Name":"Last-Modified","Value":"Tue, 03 Jun 2025 05:26:26 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4429"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u002236l9mBO17HIMK\u002BEJVnyTx35pPFLe/bm4wIArB0Iux00=\u0022"},{"Name":"Last-Modified","Value":"Sun, 15 Jun 2025 20:06:01 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/AureusVitalis/css/auth.vo6wstp8ao.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\auth.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"vo6wstp8ao"},{"Name":"integrity","Value":"sha256-36l9mBO17HIMK\u002BEJVnyTx35pPFLe/bm4wIArB0Iux00="},{"Name":"label","Value":"_content/AureusVitalis/css/auth.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4429"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u002236l9mBO17HIMK\u002BEJVnyTx35pPFLe/bm4wIArB0Iux00=\u0022"},{"Name":"Last-Modified","Value":"Tue, 03 Jun 2025 05:26:26 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4429"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u002236l9mBO17HIMK\u002BEJVnyTx35pPFLe/bm4wIArB0Iux00=\u0022"},{"Name":"Last-Modified","Value":"Sun, 15 Jun 2025 20:06:01 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/AureusVitalis/css/education.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\education.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-NCh8XmFfKuVNdf1y38qb7ibzlRv1n4nuO/QIWk03R0c="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"16223"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022NCh8XmFfKuVNdf1y38qb7ibzlRv1n4nuO/QIWk03R0c=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 20:20:25 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-iro5cVucYylPtqVM7114BAeOBuujosox\u002B98cgxwbH3s="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"18630"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022iro5cVucYylPtqVM7114BAeOBuujosox\u002B98cgxwbH3s=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 08:14:38 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/AureusVitalis/css/education.gh076xsayi.css">
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/css/education.ubugx35n5i.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\education.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"gh076xsayi"},{"Name":"integrity","Value":"sha256-NCh8XmFfKuVNdf1y38qb7ibzlRv1n4nuO/QIWk03R0c="},{"Name":"label","Value":"_content/AureusVitalis/css/education.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"16223"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022NCh8XmFfKuVNdf1y38qb7ibzlRv1n4nuO/QIWk03R0c=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 20:20:25 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ubugx35n5i"},{"Name":"integrity","Value":"sha256-iro5cVucYylPtqVM7114BAeOBuujosox\u002B98cgxwbH3s="},{"Name":"label","Value":"_content/AureusVitalis/css/education.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"18630"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022iro5cVucYylPtqVM7114BAeOBuujosox\u002B98cgxwbH3s=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 08:14:38 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/AureusVitalis/css/site.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-B7zfNHGEu3dCbk739SbNEHU6/ILb5ce6fT8Lieka2II="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"15655"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022B7zfNHGEu3dCbk739SbNEHU6/ILb5ce6fT8Lieka2II=\u0022"},{"Name":"Last-Modified","Value":"Tue, 03 Jun 2025 05:26:26 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-bAk7MZ1MxeY7X003\u002BVyzlidcF36uERD\u002BZDHAHkgreFk="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"17025"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022bAk7MZ1MxeY7X003\u002BVyzlidcF36uERD\u002BZDHAHkgreFk=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 09:16:50 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/AureusVitalis/css/site.vyaultmc1h.css">
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/css/site.km05fiosb5.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"vyaultmc1h"},{"Name":"integrity","Value":"sha256-B7zfNHGEu3dCbk739SbNEHU6/ILb5ce6fT8Lieka2II="},{"Name":"label","Value":"_content/AureusVitalis/css/site.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"15655"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022B7zfNHGEu3dCbk739SbNEHU6/ILb5ce6fT8Lieka2II=\u0022"},{"Name":"Last-Modified","Value":"Tue, 03 Jun 2025 05:26:26 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"km05fiosb5"},{"Name":"integrity","Value":"sha256-bAk7MZ1MxeY7X003\u002BVyzlidcF36uERD\u002BZDHAHkgreFk="},{"Name":"label","Value":"_content/AureusVitalis/css/site.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"17025"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022bAk7MZ1MxeY7X003\u002BVyzlidcF36uERD\u002BZDHAHkgreFk=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 09:16:50 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/AureusVitalis/favicon.61n19gt1b8.ico">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</AssetFile>
@@ -108,6 +432,18 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-mYjg1DP2870yPmxwvepZSW/zYBEu0sQKaTD5KhwN2vU="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"348"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022mYjg1DP2870yPmxwvepZSW/zYBEu0sQKaTD5KhwN2vU=\u0022"},{"Name":"Last-Modified","Value":"Tue, 03 Jun 2025 05:26:26 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/images/logout.fdoxdbeykw.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\logout.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"fdoxdbeykw"},{"Name":"integrity","Value":"sha256-XW2quyGSMHS24yK5AZbGovK3iActFdn1aIDNKolxVpg="},{"Name":"label","Value":"_content/AureusVitalis/images/logout.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"35680"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022XW2quyGSMHS24yK5AZbGovK3iActFdn1aIDNKolxVpg=\u0022"},{"Name":"Last-Modified","Value":"Sun, 15 Jun 2025 19:13:27 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/images/logout.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\logout.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-XW2quyGSMHS24yK5AZbGovK3iActFdn1aIDNKolxVpg="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"35680"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022XW2quyGSMHS24yK5AZbGovK3iActFdn1aIDNKolxVpg=\u0022"},{"Name":"Last-Modified","Value":"Sun, 15 Jun 2025 19:13:27 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/AureusVitalis/images/profile.160ksoxpj1.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profile.png'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -132,17 +468,17 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"wt4e0dtuba"},{"Name":"integrity","Value":"sha256-9LMXd\u002BHRoa0iF30khKSCHTOwO9YuTklUab9N3NQg0j4="},{"Name":"label","Value":"_content/AureusVitalis/images/trophy.png"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"428"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u00229LMXd\u002BHRoa0iF30khKSCHTOwO9YuTklUab9N3NQg0j4=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 14:54:14 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/AureusVitalis/js/auth.5q0o7pxogb.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\auth.js'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"5q0o7pxogb"},{"Name":"integrity","Value":"sha256-U2su\u002B5u\u002Bs/f9DylakfpeAL2Or1OB5K8NGFLC6c7rlqo="},{"Name":"label","Value":"_content/AureusVitalis/js/auth.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4848"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022U2su\u002B5u\u002Bs/f9DylakfpeAL2Or1OB5K8NGFLC6c7rlqo=\u0022"},{"Name":"Last-Modified","Value":"Tue, 03 Jun 2025 05:26:26 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/AureusVitalis/js/auth.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\auth.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-U2su\u002B5u\u002Bs/f9DylakfpeAL2Or1OB5K8NGFLC6c7rlqo="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4848"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022U2su\u002B5u\u002Bs/f9DylakfpeAL2Or1OB5K8NGFLC6c7rlqo=\u0022"},{"Name":"Last-Modified","Value":"Tue, 03 Jun 2025 05:26:26 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-IymC0TP7jCu54x0YPgzJfX9aI897FYN62w/ASG717nQ="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4343"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022IymC0TP7jCu54x0YPgzJfX9aI897FYN62w/ASG717nQ=\u0022"},{"Name":"Last-Modified","Value":"Sun, 15 Jun 2025 21:28:41 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AureusVitalis/js/auth.tshvjadhgc.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\auth.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"tshvjadhgc"},{"Name":"integrity","Value":"sha256-IymC0TP7jCu54x0YPgzJfX9aI897FYN62w/ASG717nQ="},{"Name":"label","Value":"_content/AureusVitalis/js/auth.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4343"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022IymC0TP7jCu54x0YPgzJfX9aI897FYN62w/ASG717nQ=\u0022"},{"Name":"Last-Modified","Value":"Sun, 15 Jun 2025 21:28:41 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/AureusVitalis/js/exercises.6kjxylx25o.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\exercises.js'))</AssetFile>

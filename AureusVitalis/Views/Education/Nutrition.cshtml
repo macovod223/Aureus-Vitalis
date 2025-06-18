@@ -1,47 +1,66 @@
 @* Views/Education/Nutrition.cshtml *@
-@model EducationContentModel
+@model AureusVitalis.Models.EducationContentModel
 @{
-    ViewData["Title"] = "Nutrition";
+    ViewData["Title"] = "Основы правильного питания";
     Layout = "~/Views/Education/_EducationLayout.cshtml";
 }
 
 <div class="lesson-content">
-    <h1>@Model.Title</h1>
-    <div class="content">
-        @Html.Raw(Model.Content)
-    </div>
-    @if (Model.Images != null && Model.Images.Any())
-    {
-        <div class="image-gallery">
-            @foreach (var image in Model.Images)
-            {
-                <img src="@image" alt="Nutrition illustration" />
-            }
-        </div>
-    }
-    <div class="navigation-buttons">
-        <button class="nav-button prev-button" onclick="previousLesson()">Назад</button>
-        <button class="nav-button next-button" onclick="nextLesson()">Далее</button>
-    </div>
+  <h1>Основы правильного питания</h1>
+
+  <div class="content">
+    <h2>1. Что такое макронутриенты?</h2>
+    <p>
+      Макронутриенты — это белки, жиры и углеводы. Каждый из них отвечает за свою функцию:
+    </p>
+    <ul>
+      <li><strong>Белки</strong> — строительный материал для мышц, кожи, волос и ногтей.</li>
+      <li><strong>Жиры</strong> — источник долгой энергии и строительный блок для гормонов.</li>
+      <li><strong>Углеводы</strong> — быстрый источник энергии для мозга и мышц.</li>
+    </ul>
+
+    <h2>2. Как рассчитать баланс БЖУ?</h2>
+    <p>
+      Стандартное соотношение для поддержания здоровья — 30% белков, 30% жиров и 40% углеводов от
+      общей калорийности. Например, при 2000 kcal:
+    </p>
+    <ul>
+      <li>Белки: 2000 × 0.30 = 600 kcal ⇒ 600 / 4 = 150 г</li>
+      <li>Жиры: 2000 × 0.30 = 600 kcal ⇒ 600 / 9 = 67 г</li>
+      <li>Углеводы: 2000 × 0.40 = 800 kcal ⇒ 800 / 4 = 200 г</li>
+    </ul>
+
+    <h2>3. Принципы здорового приёма пищи</h2>
+    <ol>
+      <li>Ешьте каждые 3–4 часа, чтобы поддерживать стабильный уровень сахара в крови.</li>
+      <li>Включайте в каждый приём белок и клетчатку для длительного чувства сытости.</li>
+      <li>Пейте не менее 1,5–2 литров воды в день.</li>
+      <li>Ограничьте простые сахара и трансжиры.</li>
+    </ol>
+  </div>
+
+  <div class="navigation-buttons">
+    <button class="nav-button prev-button" onclick="previousLesson()">Назад</button>
+    <button class="nav-button next-button" onclick="nextLesson()">Далее</button>
+  </div>
 </div>
 
 @section Sidebar {
-    <div class="lessons-list">
-        <div class="lesson-item">
-            <span class="lesson-number">1</span>
-            <span class="lesson-title">Питание</span>
-        </div>
-        <div class="lesson-item @(ViewContext.RouteData.Values["action"].ToString() == "Nutrition" ? "active" : "")" data-url="/Education/Nutrition">
-            <span class="lesson-number">1.1</span>
-            <span class="lesson-title">Питание. Теория</span>
-        </div>
-        <div class="lesson-item @(ViewContext.RouteData.Values["action"].ToString() == "NutritionPractice" ? "active" : "")" data-url="/Education/NutritionPractice">
-            <span class="lesson-number">1.2</span>
-            <span class="lesson-title">Питание. Практика</span>
-        </div>
-        <div class="lesson-item @(ViewContext.RouteData.Values["action"].ToString() == "NutritionTest" ? "active" : "")" data-url="/Education/NutritionTest">
-            <span class="lesson-number">1.3</span>
-            <span class="lesson-title">Питание. Тест</span>
-        </div>
+  <div class="lessons-list">
+    <div class="lesson-item completed @(ViewContext.RouteData.Values["action"].ToString() == "Nutrition" ? "active" : "")"
+         data-url="@Url.Action("Nutrition","Education")">
+      <span class="lesson-number">1.1</span>
+      <span class="lesson-title">Питание. Теория</span>
     </div>
+    <div class="lesson-item @(ViewContext.RouteData.Values["action"].ToString() == "NutritionPractice" ? "active" : "")"
+         data-url="@Url.Action("NutritionPractice", "Education")">
+      <span class="lesson-number">1.2</span>
+      <span class="lesson-title">Питание. Практика</span>
+    </div>
+    <div class="lesson-item @(ViewContext.RouteData.Values["action"].ToString() == "NutritionTest" ? "active" : "")"
+         data-url="@Url.Action("NutritionTest", "Education")">
+      <span class="lesson-number">1.3</span>
+      <span class="lesson-title">Питание. Тест</span>
+    </div>
+  </div>
 }

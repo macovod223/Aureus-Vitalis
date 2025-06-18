@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AureusVitalis")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+136dd5b5aa4c9bde12dddf17315c2e7013c61779")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af817a0e8948472a3fc9717ec6d9b997d85cf4c5")]
 [assembly: System.Reflection.AssemblyProductAttribute("AureusVitalis")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AureusVitalis")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

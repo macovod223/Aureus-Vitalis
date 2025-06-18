@@ -1,15 +1,34 @@
 ﻿@{
     ViewData["Title"] = "Home";
+    Layout = "_Layout";
 }
 
 <header class="site-header">
+    <!-- Левая колонка -->
     <a href="/" class="nav-icon">
         <img src="~/images/home.png" alt="Home" />
     </a>
+
     <div class="site-title">Aureus&Vitalis</div>
-    <a href="/Auth/Login" class="nav-icon">
-        <img src="~/images/profile.png" alt="Profile" />
-    </a>
+
+    <div class="header-actions">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <span class="welcome-user">Привет, @User.Identity.Name</span>
+
+            <form asp-controller="Auth" asp-action="Logout" method="post" class="logout-form">
+                <button type="submit" class="nav-icon">
+                    <img src="~/images/logout.png" alt="Logout" />
+                </button>
+            </form>
+        }
+        else
+        {
+            <a href="/Auth/Login" class="nav-icon">
+                <img src="~/images/profile.png" alt="Login" />
+            </a>
+        }
+    </div>
 </header>
 
 <div class="hero-section">
@@ -17,7 +36,11 @@
         <h1>Aureus&Vitalis</h1>
         <p class="hero-subtitle">современное решение для здоровой и сбалансированной жизни</p>
         <div class="hero-buttons">
-            <a href="/Education/Main" class="primary-button">Начать путь</a>
+            <a href="@(User.Identity.IsAuthenticated ? "/Education/Main"
+                         : "/Auth/Register")"
+               class="primary-button">
+                Начать путь
+            </a>
             <a href="/DailyHelper/Selection" class="secondary-button">Дневной помощник</a>
         </div>
     </div>
@@ -105,7 +128,11 @@
         <h2>Готовы начать свой путь к здоровью?</h2>
         <div class="cta-buttons">
             <a href="/Auth/Register" class="cta-button primary">Создать аккаунт</a>
-            <a href="javascript:void(0)" class="cta-button secondary">Узнать больше</a>
         </div>
     </div>
 </div>
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2025 - AureusVitalis (сделано Тимурчиком и Арманчиком) - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+</footer>

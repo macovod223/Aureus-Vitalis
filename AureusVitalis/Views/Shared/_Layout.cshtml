@@ -51,21 +51,6 @@ else if (Context.Request.Path.StartsWithSegments("/DailyHelper") || Context.Requ
                 <span>Daily helper</span>
             </a>
         }
-        @if (User.Identity.IsAuthenticated)
-        {
-            <div class="user-progress">
-                <div class="progress-indicator">
-                    <div class="progress-bar" style="width: @ViewBag.UserProgress%"></div>
-                </div>
-                <span class="progress-text">@ViewBag.UserProgress%</span>
-                @if (ViewBag.UserProgress >= 100)
-                {
-                    <a href="/Education/Certificate" class="certificate-link">
-                        <img src="~/images/certificate.png" alt="Get Certificate" title="Получить сертификат"/>
-                    </a>
-                }
-            </div>
-        }
     </header>
     <div class="main-container">
         @RenderBody()
@@ -99,22 +84,19 @@ else
                     <ul class="navbar-nav">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Auth" asp-action="Profile">Profile</a>
+                            <li class="nav-item d-flex align-items-center">
+                                <span class="nav-username">Привет, @User.Identity.Name</span>
+
+                                @* Скрытая POST-форма для Logout *@
+                                <form id="logoutForm" asp-controller="Auth" asp-action="Logout" method="post"></form>
+                                
+                                <a href="#"
+                                   class="nav-icon"
+                                   title="Выйти"
+                                   onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">
+                                    <img src="~/images/logout.png" alt="Logout" />
+                                </a>
                             </li>
-                            <li class="nav-item">
-                                <form asp-controller="Auth" asp-action="Logout" method="post">
-                                    <button type="submit" class="nav-link text-dark border-0 bg-transparent">Logout</button>
-                                </form>
-                            </li>
-                            @if (ViewBag.UserProgress >= 100)
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-controller="Education" asp-action="Certificate">
-                                        <img src="~/images/certificate.png" alt="Certificate" class="certificate-icon"/>
-                                    </a>
-                                </li>
-                            }
                         }
                         else
                         {
@@ -132,12 +114,6 @@ else
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - AureusVitalis - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
 }
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -165,7 +141,6 @@ else
     <script src="~/js/test.js"></script>
 }
 
-@* Добавляем скрипт для обработки прогресса *@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Обновление прогресса при завершении урока/теста
@@ -204,6 +179,5 @@ else
         }
     });
 </script>
-
 </body>
 </html>

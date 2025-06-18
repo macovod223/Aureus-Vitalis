@@ -5,10 +5,13 @@
 
 <div class="calculator-container">
     <div class="calculator-header">
-        <h2>Calorie/Sleep Calculator</h2>
+        <h2>@ViewData["Title"]</h2>
     </div>
 
     <form asp-action="Calculator" asp-controller="DailyHelper" method="post" class="calculator-form">
+        @Html.AntiForgeryToken()
+        <div asp-validation-summary="All" class="text-danger" style="margin-bottom:20px;"></div>
+
         <div class="form-group">
             <label asp-for="DailyCalories">Select daily calorie</label>
             <select asp-for="DailyCalories" class="form-select">
@@ -48,11 +51,11 @@
             <label asp-for="SleepType">Select sleep type</label>
             <div class="sleep-type-container">
                 <div class="sleep-option">
-                    <input type="radio" id="short" name="SleepType" value="Short">
+                    <input type="radio" asp-for="SleepType" id="short" value="Short">
                     <label for="short">Short rest</label>
                 </div>
                 <div class="sleep-option">
-                    <input type="radio" id="long" name="SleepType" value="Long">
+                    <input type="radio" asp-for="SleepType" id="long" value="Long">
                     <label for="long">Full sleep</label>
                 </div>
             </div>
@@ -61,30 +64,34 @@
 
         <div class="form-group">
             <label asp-for="SleepTime">Select sleep time</label>
-            <input type="time" asp-for="SleepTime" class="form-input">
+            <input type="time" asp-for="SleepTime" class="form-input" />
             <span asp-validation-for="SleepTime" class="text-danger"></span>
         </div>
 
-        @if (Model?.DietPlan != null || Model?.SleepSchedule != null)
-        {
-            <div class="results-container">
-                @if (Model.DietPlan != null)
-                {
-                    <div class="result-block">
-                        <h3>Your Diet Plan</h3>
-                        <p>@Model.DietPlan</p>
-                    </div>
-                }
-                @if (Model.SleepSchedule != null)
-                {
-                    <div class="result-block">
-                        <h3>Your Sleep Schedule</h3>
-                        <p>@Model.SleepSchedule</p>
-                    </div>
-                }
-            </div>
-        }
-
         <button type="submit" class="calculator-button">Calculate</button>
     </form>
+    
+    @if (!string.IsNullOrEmpty(Model?.DietPlan) || !string.IsNullOrEmpty(Model?.SleepSchedule))
+    {
+        <div class="results-container">
+            @if (!string.IsNullOrEmpty(Model.DietPlan))
+            {
+                <div class="result-block">
+                    <h3>Ваш план питания</h3>
+                    <p>@Html.Raw(Model.DietPlan.Replace("\n","<br />"))</p>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.SleepSchedule))
+            {
+                <div class="result-block">
+                    <h3>Ваш график сна</h3>
+                    <p>@Model.SleepSchedule</p>
+                </div>
+            }
+        </div>
+    }
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

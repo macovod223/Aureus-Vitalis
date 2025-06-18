@@ -60,24 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        if (validateForm()) {
-            submitButton.classList.add('loading');
-
-            setTimeout(() => {
-                submitButton.classList.remove('loading');
-                submitButton.classList.add('success');
-                submitButton.textContent = 'Успешно!';
-
-                setTimeout(() => {
-                    this.submit();
-                }, 1000);
-            }, 1500);
-        }
-    });
-
     function showError(input, message) {
         const errorDiv = input.parentElement.querySelector('.error-message') ||
             createErrorElement(input);

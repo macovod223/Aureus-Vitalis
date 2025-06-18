@@ -1,20 +1,42 @@
+using System;
 using AureusVitalis.Data;
-using AureusVitalis.Services;
+using AureusVitalis.Infrastructure;   // EmailOptions
+using AureusVitalis.Services;         // AuthService, CertificateService
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+// ─────────── База данных ───────────
+builder.Services.AddDbContext<AppDbContext>(opts =>
+    opts.UseNpgsql(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        o => o.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)));
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(connectionString));
-
+// ─────────── DI контейнер ───────────
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ICertificateService, CertificateService>();
 
+builder.Services.Configure<EmailOptions>(
+    builder.Configuration.GetSection("Email"));
+
+// ─────────── Cookie-auth ────────────
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(o =>
+    {
+        o.LoginPath         = "/Auth/Login";
+        o.LogoutPath        = "/Auth/Logout";
+        o.Cookie.Name       = "AureusAuth";
+        o.ExpireTimeSpan    = TimeSpan.FromDays(7);
+        o.SlidingExpiration = true;
+    });
+
+// MVC
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
+// ─────────── pipeline ───────────────
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -22,12 +44,13 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles(); 
-app.UseRouting();
+app.UseStaticFiles();
 
+app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
 
-// Добавляем маршруты для всех контроллеров
+// ─────────── маршруты ───────────────
 app.MapControllerRoute(
     name: "dailyHelper",
     pattern: "DailyHelper/{action=Selection}/{id?}",
@@ -38,10 +61,9 @@ app.MapControllerRoute(
     pattern: "Education/{action=Main}/{id?}",
     defaults: new { controller = "Education" });
 
-// Оставляем дефолтный маршрут последним
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-
+app.MapControllers();        // для CertificateController и др.
 app.Run();

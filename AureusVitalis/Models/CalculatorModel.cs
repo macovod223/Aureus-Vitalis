@@ -6,8 +6,7 @@ namespace AureusVitalis.Models
     {
         [Required(ErrorMessage = "Please select daily calories")]
         public int DailyCalories { get; set; }
-
-        [Required(ErrorMessage = "Please select allergens")]
+        
         public List<string> Allergens { get; set; }
 
         [Required(ErrorMessage = "Please select sleep type")]

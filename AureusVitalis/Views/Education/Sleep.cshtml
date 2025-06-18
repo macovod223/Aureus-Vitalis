@@ -84,11 +84,13 @@
             <span class="lesson-number">3</span>
             <span class="lesson-title">Сон</span>
         </div>
-        <div class="lesson-item @(ViewContext.RouteData.Values["action"].ToString() == "Sleep" ? "active" : "")" data-url="/Education/Sleep">
+        <div class="lesson-item completed @(ViewContext.RouteData.Values["action"].ToString() == "Sleep" ? "active" : "")"
+             data-url="@Url.Action("Sleep","Education")">
             <span class="lesson-number">3.1</span>
             <span class="lesson-title">Сон. Теория</span>
         </div>
-        <div class="lesson-item @(ViewContext.RouteData.Values["action"].ToString() == "SleepPractice" ? "active" : "")" data-url="/Education/SleepPractice">
+        <div class="lesson-item @(ViewContext.RouteData.Values["action"].ToString() == "SleepPractice" ? "active" : "")"
+             data-url="@Url.Action("SleepPractice","Education")">
             <span class="lesson-number">3.2</span>
             <span class="lesson-title">Сон. Практика</span>
         </div>

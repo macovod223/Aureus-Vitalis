@@ -158,7 +158,7 @@
 }
 
 .daily-helper-link {
-  background-color: white;
+  background-color: var(--primary-color);
   color: var(--brand-color);
   padding: 8px 20px;
   border-radius: 20px;
@@ -172,15 +172,15 @@
 }
 
 .daily-helper-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color:#7edb7e;
+  transform:translateY(-2px);
+  box-shadow:0 6px 18px rgba(0,0,0,.18);
 }
 
 .daily-helper-link span {
   font-size: 1em;
 }
 
-/* Responsive Styles */
 @media (max-width: 1200px) {
   .education-grid {
     flex-wrap: wrap;
@@ -682,22 +682,69 @@ blockquote {
   }
 }
 
-/* Обновленные стили для хедера */
-.site-header {
-  background-color: var(--primary-color);
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+.site-header{
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:1000;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:25px 30px;
+  height:  90px;
+  background:var(--primary-color);
+  box-shadow:0 2px 10px rgba(0,0,0,.1);
 }
 
-/* Стили для главной страницы */
+/* домик слева остаётся в потоке */
+.site-header .nav-icon:first-child{
+  flex:0 0 auto;
+}
+
+/* блок с приветствием справа */
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  flex:0 0 auto;
+}
+
+.site-title{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  margin:0;
+
+  font-family:'Quicksand',sans-serif;
+  font-weight:700;
+  font-size:32px;
+  color:inherit;
+
+  pointer-events:none;
+}
+
+.welcome-user{
+  font-family:'Quicksand',sans-serif;
+  font-weight:600;
+  color:var(--brand-color);
+  font-size:1.05em;
+}
+
+.site-title{
+  justify-self:center;        /* горизонтальное центрирование внутри grid-ячейки */
+  font-family:'Quicksand',sans-serif;
+  font-size:32px;
+  font-weight:700;
+  margin:0;                   /* чтобы ничего не «толкало» его в стороны */
+}
+
+.header-actions{
+  display:flex;               /* аккуратный ряд элементов справа */
+  align-items:center;
+  gap:16px;
+}
+
 .hero-section {
   margin-top: 80px; /* Учитываем фиксированный хедер */
   background: linear-gradient(135deg, var(--primary-color) 0%, #2E7D32 100%);
@@ -892,7 +939,6 @@ blockquote {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Медиа-запросы для кнопок */
 @media (max-width: 768px) {
   .hero-buttons {
     flex-direction: column;
@@ -905,4 +951,63 @@ blockquote {
     max-width: 300px;
     text-align: center;
   }
+}
+
+.nav-icon {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: invert(20%) sepia(80%) saturate(600%) hue-rotate(80deg)
+  brightness(90%) contrast(85%);
+}
+
+.nav-username {
+  color: #333;
+  margin-right: 8px;
+  font-size: 1em;
+}
+
+#logoutForm {
+  display: none;
+}
+
+.achievements-link{
+  background-color: var(--primary-color);   /* #90EE90 */
+  color: var(--brand-color);                /* тёмно-зелёный текст */
+  padding: 10px 32px;
+  border-radius: 30px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;               /* отступ между иконкой и текстом */
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0,0,0,.12);
+  transition: background-color .25s, box-shadow .25s, transform .25s;
+}
+
+.achievements-link img{
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  margin-right: 8px;
+  filter: invert(20%) sepia(80%) saturate(600%) hue-rotate(80deg)
+  brightness(90%) contrast(85%);
+}
+
+.achievements-link:hover{
+  background-color:#7edb7e;    /* слегка темнее при ховере */
+  transform:translateY(-2px);
+  box-shadow:0 6px 18px rgba(0,0,0,.18);
 }

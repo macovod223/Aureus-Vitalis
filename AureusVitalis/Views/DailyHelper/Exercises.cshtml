@@ -5,17 +5,23 @@
 
 <div class="exercises-container">
     <div class="exercises-header">
-        <h2>Daily Exercises</h2>
+        <h2>@ViewData["Title"]</h2>
     </div>
 
-    <form asp-action="Exercises" asp-controller="DailyHelper" method="post" class="exercises-form">
+    <form asp-action="Exercises"
+          asp-controller="DailyHelper"
+          method="post"
+          class="exercises-form">
+        @Html.AntiForgeryToken()
+        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
         <div class="gender-group">
             <div class="gender-option">
-                <input type="radio" id="male" name="Gender" value="M" asp-for="Gender" />
+                <input type="radio" asp-for="Gender" id="male" value="M" />
                 <label for="male">М</label>
             </div>
             <div class="gender-option">
-                <input type="radio" id="female" name="Gender" value="F" asp-for="Gender" />
+                <input type="radio" asp-for="Gender" id="female" value="F" />
                 <label for="female">Ж</label>
             </div>
             <span asp-validation-for="Gender" class="text-danger"></span>
@@ -51,21 +57,26 @@
             <span asp-validation-for="MuscleGroup" class="text-danger"></span>
         </div>
 
-        @if (Model?.GeneratedExercises != null && Model.GeneratedExercises.Any())
-        {
-            <div class="exercises-results">
-                <h3>Your Exercise Plan</h3>
-                @foreach (var exercise in Model.GeneratedExercises)
-                {
-                    <div class="exercise-card">
-                        <div class="exercise-name">@exercise.Name</div>
-                        <div class="exercise-reps">@exercise.Repetitions repetitions</div>
-                        <div class="exercise-recommendations">@exercise.Recommendations</div>
-                    </div>
-                }
-            </div>
-        }
-
         <button type="submit" class="generate-button">Generate</button>
     </form>
+
+    @* Результаты показываем только после POST, когда список не пустой *@
+    @if (Model?.GeneratedExercises?.Any() == true)
+    {
+        <div class="exercises-results mt-4">
+            <h3>Your Exercise Plan</h3>
+            @foreach (var ex in Model.GeneratedExercises)
+            {
+                <div class="exercise-card">
+                    <div class="exercise-name">@ex.Name</div>
+                    <div class="exercise-reps">@ex.Repetitions repetitions</div>
+                    <div class="exercise-recommendations">@ex.Recommendations</div>
+                </div>
+            }
+        </div>
+    }
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
